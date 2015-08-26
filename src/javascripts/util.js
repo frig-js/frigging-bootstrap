@@ -1,5 +1,5 @@
 var React = require("react")
-var {span, label} = React.DOM
+var {div, span, label} = React.DOM
 var cx = require("classnames")
 
 module.exports = {
@@ -15,8 +15,33 @@ module.exports = {
   },
 
   label(props, overrides = {}) {
+    if (!props.label) return ""
     let labelHtml = Object.assign({}, props, overrides)
-    return props.label == null ? "" : label(labelHtml, props.label)
+    labelHtml.className = cx(labelHtml.className, {
+      "col-sm-3": props.layout === "horizontal",
+    })
+    return div({},
+      label(labelHtml, props.label),
+      savedText({saved: props.saved && props.layout === "vertical"}),
+    )
+  },
+
+  savedText({saved}) {
+    return saved ? span({className: "frigb-saved pull-right"}, "saved") : ""
+  },
+
+  savedNotification(props) {
+    let layout = props.layout
+    let label = props.label
+    let saved = props.saved
+    let savedInline = span({className: "frigb-saved-inline"}, "saved")
+
+    if (label === false && saved) return savedInline
+    if (label && saved && layout == "horizontal") return savedInline
+  },
+
+  inputContainerCx(props) {
+    return cx({"col-sm-9": props.layout == "horizontal"})
   },
 
   sizeClassNames(props) {
@@ -46,3 +71,5 @@ module.exports = {
   },
 
 }
+
+var {savedText} = module.exports
