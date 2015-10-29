@@ -111,6 +111,12 @@ export default class extends React.Component {
     }
   }
 
+  _canDisplay(option) {
+    return (
+      option.display === false || option.value[2] === false
+    )
+  }
+
   _onInputChange(val) {
     // select the user's input if it matches an option (single-selects only)
     let option = this._optionForCurrentInput(val)
@@ -124,7 +130,12 @@ export default class extends React.Component {
     // Adding hashes (for selection lookup) and removing duplicates
     for (let i in options) {
       let hash = options[i].hash = JSON.stringify(options[i].value)
-      if (hashes.indexOf(hash) >= 0) options.splice(i, 1)
+      if (hashes.indexOf(hash) >= 0 || this._canDisplay(options[i])) {
+        options.splice(i, 1)
+      } else if (options[i].value === false) {
+        options.splice((i-1), 2)
+      }
+
       hashes.push(hash)
     }
     return options
