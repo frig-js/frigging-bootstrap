@@ -14,13 +14,11 @@ export default class extends React.Component {
   displayName = "Frig.friggingBootstrap.Number"
 
   static defaultProps = Object.assign(require("../default_props.js"), {
-    format: "0,0[.][00]",
+    format: "",
   })
 
-  _formatNumber(newNumber) {
-    if (!this.props.format) return
-
-    let currentNumber = this._toNumeral(newNumber) || ""
+  _formatNumber() {
+    let currentNumber = this._toNumeral(this.props.valueLink.value) || ""
 
     this.props.valueLink.requestChange(
       currentNumber ? currentNumber.format(this.props.format) : ""
@@ -28,7 +26,7 @@ export default class extends React.Component {
   }
 
   _onBlur() {
-    this._formatNumber()
+    if (this.props.format) this._formatNumber()
   }
 
   _inputCx() {
