@@ -52,7 +52,7 @@ export default class extends React.Component {
 
   _isNumber(value) {
     let number = parseFloat(value)
-    return !Number.isNaN(parseFloat(number)) && Number.isFinite(number)
+    return !Number.isNaN(number) && Number.isFinite(number)
   }
 
   _toNumeral(value) {
