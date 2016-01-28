@@ -42,10 +42,7 @@ export default class extends React.Component {
     return input(Object.assign({}, this.props.inputHtml, {
         onBlur: this._onBlur.bind(this),
         className: this._inputCx(),
-        valueLink: {
-          value: this.props.valueLink.value,
-          requestChange: this._formatNumber.bind(this),
-        },
+        valueLink: this.props.valueLink,
       })
     )
   }
