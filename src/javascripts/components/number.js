@@ -17,10 +17,10 @@ export default class extends React.Component {
     format: "0,0[.][00]",
   })
 
-  _formatNumber() {
+  _formatNumber(newNumber) {
     if (!this.props.format) return
 
-    let currentNumber = this._toNumeral(this.props.valueLink.value) || ""
+    let currentNumber = this._toNumeral(newNumber) || ""
 
     this.props.valueLink.requestChange(
       currentNumber ? currentNumber.format(this.props.format) : ""
@@ -42,7 +42,10 @@ export default class extends React.Component {
     return input(Object.assign({}, this.props.inputHtml, {
         onBlur: this._onBlur.bind(this),
         className: this._inputCx(),
-        valueLink: this.props.valueLink,
+        valueLink: {
+          value: this.props.valueLink.value,
+          requestChange: this._formatNumber.bind(this),
+        },
       })
     )
   }
