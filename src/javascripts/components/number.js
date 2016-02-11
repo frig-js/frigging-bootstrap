@@ -13,12 +13,10 @@ export default class Number extends React.Component {
   displayName = "FriggingBootstrap.Number"
 
   static defaultProps = Object.assign(require("../default_props.js"), {
-    format: "0,0[.][00]",
+    format: "",
   })
 
   _formatNumber() {
-    if (!this.props.format) return
-
     let currentNumber = this._toNumeral(this.props.valueLink.value) || ""
 
     this.props.valueLink.requestChange(
@@ -27,7 +25,7 @@ export default class Number extends React.Component {
   }
 
   _onBlur() {
-    this._formatNumber()
+    if (this.props.format) this._formatNumber()
   }
 
   _inputCx() {
@@ -49,7 +47,7 @@ export default class Number extends React.Component {
 
   _isNumber(value) {
     let number = parseFloat(value)
-    return !Number.isNaN(parseFloat(number)) && Number.isFinite(number)
+    return !Number.isNaN(number) && Number.isFinite(number)
   }
 
   _toNumeral(value) {
