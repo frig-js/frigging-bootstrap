@@ -11,7 +11,7 @@ import {
 
 export default class Number extends React.Component {
   state = {
-    formattedValue: ""
+    formattedValue: "",
   }
   displayName = "FriggingBootstrap.Number"
 
@@ -57,8 +57,8 @@ export default class Number extends React.Component {
           value: (this.state.formattedValue || this._formatNumber(
             this._toNumeral(this.props.valueLink.value) || "")
           ),
-          requestChange: this._onChange.bind(this)
-        }
+          requestChange: this._onChange.bind(this),
+        },
       })} />
     )
   }
