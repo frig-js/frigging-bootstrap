@@ -17,7 +17,14 @@ export default class Number extends React.Component {
 
   static defaultProps = Object.assign(require("../default_props.js"), {
     format: "0,0[.][00]",
+    value: "",
   })
+
+  componentDidMount() {
+    if (this.props.value && !this.props.valueLink.value) {
+      this._onChange(this.props.value)
+    }
+  }
 
   _formatNumber(currentNumber) {
     if (!this.props.format) return currentNumber
