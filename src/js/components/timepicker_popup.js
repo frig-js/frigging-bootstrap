@@ -79,8 +79,8 @@ export default class TimePickerPopup extends React.Component {
     return TimePickerPopup.parseTime(val)
   }
 
-  _minutesSinceMidnight() {
-    let [hours, minutes] = this._getValuesFromTimepicker()
+  _minutesSinceMidnight(timeArray = this._getValuesFromTimepicker()) {
+    let [hours, minutes] = timeArray
 
     // Limiting the hours to a range of 0 to 11 and the minutes to 0 to 59
     hours = (hours || 0) % 12
