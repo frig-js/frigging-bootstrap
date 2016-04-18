@@ -10,6 +10,13 @@ export default class TimePickerPopup extends React.Component {
 
   static propTypes = defaultPropTypes
 
+  static parseTime(val) {
+    // Parsing the input string
+    const [hours, minutes] = val.split(':').map((s) => parseInt(s, 10))
+    const isAM = /am$/i.test(val)
+    return [hours, minutes, isAM]
+  }
+
   // Returns the number of hours from 12 to 1 to 11
   _getHour(minutesSinceMidnight = this._minutesSinceMidnight()) {
     let hour = this._hoursSinceMeridiem(minutesSinceMidnight)
@@ -69,13 +76,7 @@ export default class TimePickerPopup extends React.Component {
 
   _getValuesFromTimepicker() {
     const val = this.props.valueLink.value || ''
-
-    // Parsing the input string
-    const [hours, minutes] = val.split(':').map((s) => parseInt(s, 10))
-
-    const isAM = /am$/i.test(val)
-
-    return [hours, minutes, isAM]
+    return TimePickerPopup.parseTime(val)
   }
 
   _minutesSinceMidnight() {
