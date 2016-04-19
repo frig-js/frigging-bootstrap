@@ -5,45 +5,43 @@ import { expect } from 'chai'
 import { shallow } from 'enzyme'
 import TimePickerPopup from '../../src/js/components/timepicker_popup'
 
+
 describe('<TimePickerPopup />', () => {
   describe('parseTime()', () => {
     describe('destructures time from TimePicker (6:35PM) into h,m,isAm', () => {
-      const time = '6:35 PM'
-      const result = TimePickerPopup.parseTime(time)
-      const [hour, minutes, isAm] = result
-
-      it('correct hours', () => {
-        expect(hour).to.equal(6)
-      })
-      it('correct minutes', () => {
-        expect(minutes).to.equal(35)
-      })
-      it('correct isAm', () => {
-        expect(isAm).to.be.false()
-      })
+      const [hour, minutes, isAm] = TimePickerPopup.parseTime('6:35 PM')
+      expect(hour).to.equal(6)
+      expect(minutes).to.equal(35)
+      expect(isAm).to.be.false()
     })
   })
 
-  function testManualEntry(opts) {
-    const valueLink = {
-      value: opts.input,
-      requestChange: () => {},
-    }
-    const wrapper = shallow(<TimePickerPopup valueLink={valueLink} />)
-    const components = wrapper.findWhere(e => e.prop('valueLink') != null)
-
-    const hour = components.at(0).prop('value')
-    const minutes = components.at(1).prop('value')
-    const isAm = components.at(2).prop('value')
-
-    it(`(${opts.input}) is parsed & populated into h,m,isAm inputs`, () => {
-      expect(hour).to.equal(opts.expected.h)
-      expect(minutes).to.equal(opts.expected.m)
-      expect(isAm).to.equal(opts.expected.isAM)
-    })
-  }
-
   describe('manual time entry', () => {
+    const testManualEntry = (opts) => {
+      const valueLink = {
+        value: opts.input,
+        requestChange: () => {},
+      }
+      const wrapper = shallow(<TimePickerPopup valueLink={valueLink} />)
+
+      // We are trying to find the <Input> components, but with shallow
+      // rendering all we get is a <HigherOrderComponent>. We don't want
+      // to search for that specifically. Instead can just look for "any"
+      // component that has a `valueLink` prop.
+      const hasValueLinkProp = e => e.prop('valueLink') != null
+      const components = wrapper.findWhere(hasValueLinkProp)
+
+      const hour = components.at(0).prop('value')
+      const minutes = components.at(1).prop('value')
+      const isAm = components.at(2).prop('value')
+
+      it(`(${opts.input}) is parsed & populated into h,m,isAm inputs`, () => {
+        expect(hour).to.equal(opts.expected.h)
+        expect(minutes).to.equal(opts.expected.m)
+        expect(isAm).to.equal(opts.expected.isAM)
+      })
+    }
+
     testManualEntry({ input: '6:35 PM', expected: { h: 6, m: 35, isAM: false } })
     testManualEntry({ input: '13:00 PM', expected: { h: 1, m: 0, isAM: false } })
     testManualEntry({ input: '0:00 AM', expected: { h: 12, m: 0, isAM: true } })
@@ -59,7 +57,7 @@ describe('<TimePickerPopup />', () => {
       ).instance()
     })
 
-    function testMinutesSinceMidnight(input, expected) {
+    const testMinutesSinceMidnight = (input, expected) => {
       it(`${input} => ${expected}`, () => {
         const actual = instance._minutesSinceMidnight(input)
         expect(actual).to.equal(expected)
@@ -69,16 +67,6 @@ describe('<TimePickerPopup />', () => {
     testMinutesSinceMidnight([5, 15], 315)
     testMinutesSinceMidnight([0, 0], 0)
     testMinutesSinceMidnight([11, 59], (60 * 12 - 1)) // 719
-
-    // testMinutesSinceMidnight([23, 59], )
-    // testMinutesSinceMidnight([0, 1], 1)
-
-
-    // it('5:15 => 315', () => {
-    //   const actual = instance._minutesSinceMidnight([5, 15])
-    //   const expected = 315
-    //   expect(actual).to.equal(expected)
-    // })
   })
 
   describe('when hours is set to 13', () => {
