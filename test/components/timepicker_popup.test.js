@@ -52,6 +52,10 @@ describe('<TimePickerPopup />', () => {
     let instance
 
     beforeEach(() => {
+      // TODO: Figure out a way to grab instance methods from a React component
+      // without the warnings. The <TimePickerPopup> renders <UnboundInputs>,
+      // which in turn require a theme. Since we're not providing one, the
+      // unbound inputs get rendered as "<undefined>" tags, and React warns.
       instance = shallow(
         <TimePickerPopup valueLink={ {} } />
       ).instance()
