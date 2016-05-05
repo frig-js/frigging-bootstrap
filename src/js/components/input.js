@@ -23,7 +23,7 @@ export default class Input extends React.Component {
     }
   )
 
-  static defaultProps = Object.assign(defaultProps, {
+  static defaultProps = Object.assign({}, defaultProps, {
     // Bootstrap input addon texts
     prefix: undefined,
     suffix: undefined,

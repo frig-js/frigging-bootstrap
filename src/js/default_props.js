@@ -1,4 +1,4 @@
-module.exports = {
+const defaultProps = {
   // Sizes
   xs: 12,
   sm: undefined,
@@ -18,3 +18,7 @@ module.exports = {
     sm: 2,
   },
 }
+
+Object.freeze(defaultProps)
+
+module.exports = defaultProps
