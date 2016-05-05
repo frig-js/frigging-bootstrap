@@ -9,6 +9,7 @@ const defaultProps = {
     xs: 12,
     sm: 2,
   },
+  inputHtml: {},
 }
 
 Object.freeze(defaultProps)
