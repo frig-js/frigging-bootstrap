@@ -3,7 +3,7 @@ import cx from 'classnames'
 
 import { HigherOrderComponents } from 'frig'
 
-import TimepickerPopup from './timepicker_popup'
+import TimepickerPopup from './time/timepicker_popup'
 import InputErrorList from './input_error_list'
 import Saved from './saved'
 import Label from './label'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { UnboundInput } from 'frig'
-import defaultProps from '../default_props.js'
-import defaultPropTypes from '../default_prop_types.js'
+import defaultProps from '../../default_props.js'
+import defaultPropTypes from '../../default_prop_types.js'
 
 export default class TimePickerPopup extends React.Component {
   static displayName = 'FriggingBootstrap.TimePickerPopup'
