@@ -17,7 +17,6 @@ export default class Input extends React.Component {
 
   static propTypes = Object.assign({},
     defaultPropTypes, {
-      inputWrapper: React.PropTypes.func.isRequired,
       prefix: React.PropTypes.string,
       suffix: React.PropTypes.string,
     }
