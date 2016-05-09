@@ -87,6 +87,24 @@ describe('TimeFormatter', () => {
       expect(timeformater.hours).to.equal('6')
       expect(timeformater.amPm).to.equal('AM')
     })
+
+    it('parses 12:00 PM as 12:00 PM', () => {
+      const timeformater = new TimeFormatter('12:00 PM')
+      expect(timeformater.hours).to.equal('12')
+      expect(timeformater.amPm).to.equal('PM')
+    })
+
+    it('parses 00:00 (without AM/PM) as 12AM', () => {
+      const timeformater = new TimeFormatter('00:00')
+      expect(timeformater.hours).to.equal('12')
+      expect(timeformater.amPm).to.equal('AM')
+    })
+
+    it('parses 12:00 (without AM/PM) as 12PM', () => {
+      const timeformater = new TimeFormatter('12:00')
+      expect(timeformater.hours).to.equal('12')
+      expect(timeformater.amPm).to.equal('PM')
+    })
   })
 
   describe('bad time format', () => {

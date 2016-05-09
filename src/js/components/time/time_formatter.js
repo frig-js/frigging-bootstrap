@@ -14,7 +14,10 @@ export default class TimeFormatter {
   }
 
   get hours() {
-    return (this._hours() % 12).toString()
+    let nextHour = (this._hours() % 12)
+    if (nextHour === 0) nextHour = 12
+
+    return nextHour.toString()
   }
 
   get minutes() {
@@ -22,9 +25,25 @@ export default class TimeFormatter {
   }
 
   get amPm() {
-    if (parseInt(this._hours(), 10) > 12) return 'PM'
-    if (this._amPm() == null) return 'AM'
-    return this._amPm().toUpperCase()
+    const hours = parseInt(this._hours(), 10)
+    const amPmProvided = this._amPm() != null
+
+    // special case: handle e.g. 00:00 => 12:00 AM
+    if (hours === 0) return 'AM'
+
+    // special case: handle 12:00 without AM/PM as 12:00 PM
+    if (hours === 12 && !amPmProvided) return 'PM'
+
+    // handle 24 hour time (e.g. 14:50) as PM
+    if (hours > 12) return 'PM'
+
+    // if AM/PM provided, and none of the special cases above,
+    // use provided AM/PM
+    if (amPmProvided) return this._amPm().toUpperCase()
+
+    // if no AM/PM provided, and none of the special cases above,
+    // treat as 24 hour time (AM)
+    return 'AM'
   }
 
   toString() {
