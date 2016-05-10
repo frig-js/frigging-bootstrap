@@ -2,7 +2,7 @@ export default class TimeFormatter {
   static regex = /^(\d{1,2}):(\d{2}) ?([APap][Mm])?$/
 
   constructor(timeString) {
-    this.timeString = timeString
+    this.timeString = timeString.trim()
     this.matches = this.timeString.match(TimeFormatter.regex)
 
     if (this.matches == null) {

@@ -24,7 +24,7 @@ describe('TimeFormatter', () => {
 
   describe('Minute', () => {
     it('should return 00 from \'12:00PM\'', () => {
-      const timeformater = new TimeFormatter('12:00PM')
+      const timeformater = new TimeFormatter('12:00PM   ')
       expect(timeformater.minutes).to.equal('00')
     })
 
