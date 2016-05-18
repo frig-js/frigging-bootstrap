@@ -43,10 +43,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      isProduction ? {
-        test: /\.styl$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader'),
-      } : {
+      {
         test: /\.styl$/,
         loader: 'style-loader!css-loader!stylus-loader',
       }, {
