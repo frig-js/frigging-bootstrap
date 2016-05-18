@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"), require("frig"), require("react-addons-css-transition-group"), require("react-dom"));
+		module.exports = factory(require("react"), require("classnames"), require("frig"), require("react-addons-css-transition-group"), require("react-dom"), require("colr"), require("numeral"));
 	else if(typeof define === 'function' && define.amd)
-		define(["react", "frig", "react-addons-css-transition-group", "react-dom"], factory);
+		define(["react", "classnames", "frig", "react-addons-css-transition-group", "react-dom", "colr", "numeral"], factory);
 	else if(typeof exports === 'object')
-		exports["FriggingBootstrap"] = factory(require("react"), require("frig"), require("react-addons-css-transition-group"), require("react-dom"));
+		exports["FriggingBootstrap"] = factory(require("react"), require("classnames"), require("frig"), require("react-addons-css-transition-group"), require("react-dom"), require("colr"), require("numeral"));
 	else
-		root["FriggingBootstrap"] = factory(root["React"], root["Frig"], root["React.addons.CSSTransitionGroup"], root["ReactDOM"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_6__, __WEBPACK_EXTERNAL_MODULE_9__, __WEBPACK_EXTERNAL_MODULE_12__, __WEBPACK_EXTERNAL_MODULE_18__) {
+		root["FriggingBootstrap"] = factory(root["react"], root["classnames"], root["frig"], root["react-addons-css-transition-group"], root["react-dom"], root["colr"], root["numeral"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_6__, __WEBPACK_EXTERNAL_MODULE_7__, __WEBPACK_EXTERNAL_MODULE_8__, __WEBPACK_EXTERNAL_MODULE_11__, __WEBPACK_EXTERNAL_MODULE_18__, __WEBPACK_EXTERNAL_MODULE_19__, __WEBPACK_EXTERNAL_MODULE_29__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -56,6 +56,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
 	__webpack_require__(1);
 
 	var _checkbox = __webpack_require__(5);
@@ -66,57 +70,57 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _color2 = _interopRequireDefault(_color);
 
-	var _form_error_list = __webpack_require__(25);
+	var _form_error_list = __webpack_require__(24);
 
 	var _form_error_list2 = _interopRequireDefault(_form_error_list);
 
-	var _file = __webpack_require__(26);
+	var _file = __webpack_require__(25);
 
 	var _file2 = _interopRequireDefault(_file);
 
-	var _form = __webpack_require__(27);
+	var _form = __webpack_require__(26);
 
 	var _form2 = _interopRequireDefault(_form);
 
-	var _input = __webpack_require__(28);
+	var _input = __webpack_require__(27);
 
 	var _input2 = _interopRequireDefault(_input);
 
-	var _number = __webpack_require__(29);
+	var _number = __webpack_require__(28);
 
 	var _number2 = _interopRequireDefault(_number);
 
-	var _select = __webpack_require__(31);
+	var _select = __webpack_require__(30);
 
 	var _select2 = _interopRequireDefault(_select);
 
-	var _submit = __webpack_require__(32);
+	var _submit = __webpack_require__(31);
 
 	var _submit2 = _interopRequireDefault(_submit);
 
-	var _switch = __webpack_require__(33);
+	var _switch = __webpack_require__(32);
 
 	var _switch2 = _interopRequireDefault(_switch);
 
-	var _text = __webpack_require__(34);
+	var _text = __webpack_require__(33);
 
 	var _text2 = _interopRequireDefault(_text);
 
-	var _timepicker = __webpack_require__(35);
+	var _timepicker = __webpack_require__(34);
 
 	var _timepicker2 = _interopRequireDefault(_timepicker);
 
-	var _input_error_list = __webpack_require__(10);
+	var _input_error_list = __webpack_require__(9);
 
 	var _input_error_list2 = _interopRequireDefault(_input_error_list);
 
-	var _saved = __webpack_require__(14);
+	var _saved = __webpack_require__(13);
 
 	var _saved2 = _interopRequireDefault(_saved);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	module.exports = {
+	exports.default = {
 	  Checkbox: _checkbox2.default,
 	  Color: _color2.default,
 	  FormErrorList: _form_error_list2.default,
@@ -135,14 +139,352 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(2);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/stylus-loader/index.js!./index.styl", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/stylus-loader/index.js!./index.styl");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
-/* 2 */,
-/* 3 */,
-/* 4 */,
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".frigb-error {\n  animation: friggingBootstrapErrorHeight 2.5s linear 0s 1 normal both;\n  margin: 0 0 15px 0;\n}\n.frigb-error .alert {\n  animation: friggingBootstrapErrorOpacity 0.6s linear 0s 1 normal both;\n}\n.errorLabel-appear {\n  opacity: 0;\n  max-height: 0px;\n  margin-top: 0px;\n  margin-bottom: 0px;\n  transition: max-height 0.7s ease, margin-top 0.5s ease, margin-bottom 0.5s ease, opacity 0.5s ease;\n}\n.errorLabel-appear.errorLabel-appear-active {\n  opacity: 1;\n  max-height: 30px;\n  margin-top: 5px;\n  margin-bottom: 10px;\n}\n@-moz-keyframes friggingBootstrapErrorHeight {\n  0% {\n    max-height: 0px;\n  }\n  100% {\n    max-height: 300px;\n  }\n}\n@-webkit-keyframes friggingBootstrapErrorHeight {\n  0% {\n    max-height: 0px;\n  }\n  100% {\n    max-height: 300px;\n  }\n}\n@-o-keyframes friggingBootstrapErrorHeight {\n  0% {\n    max-height: 0px;\n  }\n  100% {\n    max-height: 300px;\n  }\n}\n@keyframes friggingBootstrapErrorHeight {\n  0% {\n    max-height: 0px;\n  }\n  100% {\n    max-height: 300px;\n  }\n}\n@-moz-keyframes friggingBootstrapErrorOpacity {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-webkit-keyframes friggingBootstrapErrorOpacity {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-o-keyframes friggingBootstrapErrorOpacity {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@keyframes friggingBootstrapErrorOpacity {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n.frigb-ta .form-control {\n  cursor: text;\n  height: auto;\n}\n.frigb-ta-selection {\n  cursor: pointer;\n  float: left;\n  margin-right: 8px;\n  margin-top: 1px;\n  margin-bottom: 6px;\n  padding: 4px 12px;\n}\n.frigb-ta-input {\n  outline: none;\n  border: none !important;\n  -webkit-box-shadow: none !important;\n  -moz-box-shadow: none !important;\n  box-shadow: none !important;\n  width: 70%;\n  padding: 0px;\n}\n.frigb-ta-suggestions li {\n  cursor: pointer;\n}\n.bootstrap-switch-base {\n  display: inline-block;\n  direction: ltr;\n  cursor: pointer;\n  border-radius: border-radius-base;\n  border: 1px solid;\n  border-color: btn-default-border;\n  position: relative;\n  text-align: left;\n  overflow: hidden;\n  line-height: 8px;\n  z-index: 0;\n  vertical-align: middle;\n}\n.bootstrap-switch-base .bootstrap-switch-base-container {\n  display: inline-block;\n  top: 0;\n  border-radius: border-radius-base;\n}\n.bootstrap-switch-base .bootstrap-switch-base-handle-on,\n.bootstrap-switch-base .bootstrap-switch-base-handle-off,\n.bootstrap-switch-base .bootstrap-switch-base-label {\n  cursor: pointer;\n  display: inline-block !important;\n  height: 100%;\n  padding: padding-base-vertical padding-base-horizontal;\n  font-size: font-size-base;\n  line-height: line-height-computed;\n}\n.bootstrap-switch-base .bootstrap-switch-base-handle-on,\n.bootstrap-switch-base .bootstrap-switch-base-handle-off {\n  text-align: center;\n  z-index: 1;\n}\n.bootstrap-switch-base .bootstrap-switch-base-handle-on.bootstrap-switch-base-primary,\n.bootstrap-switch-base .bootstrap-switch-base-handle-off.bootstrap-switch-base-primary {\n  color: #fff;\n  background: btn-primary-bg;\n}\n.bootstrap-switch-base .bootstrap-switch-base-handle-on.bootstrap-switch-base-info,\n.bootstrap-switch-base .bootstrap-switch-base-handle-off.bootstrap-switch-base-info {\n  color: #fff;\n  background: btn-info-bg;\n}\n.bootstrap-switch-base .bootstrap-switch-base-handle-on.bootstrap-switch-base-success,\n.bootstrap-switch-base .bootstrap-switch-base-handle-off.bootstrap-switch-base-success {\n  color: #fff;\n  background: btn-success-bg;\n}\n.bootstrap-switch-base .bootstrap-switch-base-handle-on.bootstrap-switch-base-warning,\n.bootstrap-switch-base .bootstrap-switch-base-handle-off.bootstrap-switch-base-warning {\n  background: btn-warning-bg;\n  color: #fff;\n}\n.bootstrap-switch-base .bootstrap-switch-base-handle-on.bootstrap-switch-base-danger,\n.bootstrap-switch-base .bootstrap-switch-base-handle-off.bootstrap-switch-base-danger {\n  color: #fff;\n  background: btn-danger-bg;\n}\n.bootstrap-switch-base .bootstrap-switch-base-handle-on.bootstrap-switch-base-default,\n.bootstrap-switch-base .bootstrap-switch-base-handle-off.bootstrap-switch-base-default {\n  color: #000;\n  background: gray-lighter;\n}\n.bootstrap-switch-base .bootstrap-switch-base-label {\n  text-align: center;\n  margin-top: -1px;\n  margin-bottom: -1px;\n  z-index: 100;\n  color: btn-default-color;\n  background: btn-default-bg;\n}\n.bootstrap-switch-base input[type='radio'],\n.bootstrap-switch-base input[type='checkbox'] {\n  position: absolute !important;\n  top: 0;\n  left: 0;\n  margin: 0;\n  z-index: -1;\n}\n.bootstrap-switch-base.bootstrap-switch-base-mini .bootstrap-switch-base-handle-on,\n.bootstrap-switch-base.bootstrap-switch-base-mini .bootstrap-switch-base-handle-off,\n.bootstrap-switch-base.bootstrap-switch-base-mini .bootstrap-switch-base-label {\n  padding: padding-xs-vertical padding-xs-horizontal;\n  font-size: font-size-small;\n  line-height: line-height-small;\n}\n.bootstrap-switch-base.bootstrap-switch-base-small .bootstrap-switch-base-handle-on,\n.bootstrap-switch-base.bootstrap-switch-base-small .bootstrap-switch-base-handle-off,\n.bootstrap-switch-base.bootstrap-switch-base-small .bootstrap-switch-base-label {\n  padding: padding-small-vertical padding-small-horizontal;\n  font-size: font-size-small;\n  line-height: line-height-small;\n}\n.bootstrap-switch-base.bootstrap-switch-base-large .bootstrap-switch-base-handle-on,\n.bootstrap-switch-base.bootstrap-switch-base-large .bootstrap-switch-base-handle-off,\n.bootstrap-switch-base.bootstrap-switch-base-large .bootstrap-switch-base-label {\n  padding: padding-base-vertical padding-large-horizontal;\n  font-size: font-size-large;\n  line-height: line-height-large;\n}\n.bootstrap-switch-base.bootstrap-switch-base-disabled,\n.bootstrap-switch-base.bootstrap-switch-base-readonly,\n.bootstrap-switch-base.bootstrap-switch-base-indeterminate {\n  cursor: default !important;\n}\n.bootstrap-switch-base.bootstrap-switch-base-disabled .bootstrap-switch-base-handle-on,\n.bootstrap-switch-base.bootstrap-switch-base-readonly .bootstrap-switch-base-handle-on,\n.bootstrap-switch-base.bootstrap-switch-base-indeterminate .bootstrap-switch-base-handle-on,\n.bootstrap-switch-base.bootstrap-switch-base-disabled .bootstrap-switch-base-handle-off,\n.bootstrap-switch-base.bootstrap-switch-base-readonly .bootstrap-switch-base-handle-off,\n.bootstrap-switch-base.bootstrap-switch-base-indeterminate .bootstrap-switch-base-handle-off,\n.bootstrap-switch-base.bootstrap-switch-base-disabled .bootstrap-switch-base-label,\n.bootstrap-switch-base.bootstrap-switch-base-readonly .bootstrap-switch-base-label,\n.bootstrap-switch-base.bootstrap-switch-base-indeterminate .bootstrap-switch-base-label {\n  cursor: default !important;\n}\n.bootstrap-switch-base.bootstrap-switch-base-focused {\n  border-color: #66afe9;\n  outline: 0;\n}\n.bootstrap-switch {\n  display: inline-block;\n  direction: ltr;\n  cursor: pointer;\n  border-radius: 4px;\n  border: 1px solid;\n  border-color: #ccc;\n  position: relative;\n  text-align: left;\n  overflow: hidden;\n  line-height: 8px;\n  z-index: 0;\n  width: 102px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  vertical-align: middle;\n  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n}\n.bootstrap-switch .bootstrap-switch-container {\n  display: inline-block;\n  top: 0;\n  border-radius: 4px;\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0);\n  width: 150px;\n  margin-left: 0px;\n}\n.bootstrap-switch .bootstrap-switch-label {\n  text-align: center;\n  margin-top: -1px;\n  margin-bottom: -1px;\n  z-index: 100;\n  color: #333;\n  background: #fff;\n}\n.bootstrap-switch .bootstrap-switch-handle-on {\n  border-bottom-left-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.bootstrap-switch .bootstrap-switch-handle-off {\n  border-bottom-right-radius: 3px;\n  border-top-right-radius: 3px;\n}\n.bootstrap-switch.bootstrap-switch-animate .bootstrap-switch-container {\n  -webkit-transition: margin-left 0.5s;\n  -o-transition: margin-left 0.5s;\n  transition: margin-left 0.5s;\n}\n.bootstrap-switch.bootstrap-switch-inverse .bootstrap-switch-handle-on {\n  border-bottom-left-radius: 0;\n  border-top-left-radius: 0;\n  border-bottom-right-radius: 3px;\n  border-top-right-radius: 3px;\n}\n.bootstrap-switch.bootstrap-switch-inverse .bootstrap-switch-handle-off {\n  border-bottom-right-radius: 0;\n  border-top-right-radius: 0;\n  border-bottom-left-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.bootstrap-switch.bootstrap-switch-focused {\n  border-color: #66afe9;\n  outline: 0;\n  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);\n  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);\n}\n.bootstrap-switch .bootstrap-switch-handle-on,\n.bootstrap-switch .bootstrap-switch-handle-off,\n.bootstrap-switch .bootstrap-switch-label {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  cursor: pointer;\n  display: inline-block !important;\n  padding: 6px 12px;\n  font-size: 14px;\n  line-height: 20px;\n  width: 50px;\n}\n.bootstrap-switch .bootstrap-switch-handle-on,\n.bootstrap-switch .bootstrap-switch-handle-off {\n  text-align: center;\n  z-index: 1;\n}\n.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary,\n.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {\n  color: #fff;\n  background: #337ab7;\n}\n.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-info,\n.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-info {\n  color: #fff;\n  background: #5bc0de;\n}\n.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success,\n.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-success {\n  color: #fff;\n  background: #5cb85c;\n}\n.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-warning,\n.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-warning {\n  background: #f0ad4e;\n  color: #fff;\n}\n.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-danger,\n.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-danger {\n  color: #fff;\n  background: #d9534f;\n}\n.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default,\n.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {\n  color: #000;\n  background: #eee;\n}\n.bootstrap-switch input[type='radio'],\n.bootstrap-switch input[type='checkbox'] {\n  position: absolute !important;\n  top: 0;\n  left: 0;\n  margin: 0;\n  z-index: -1;\n  opacity: 0;\n}\n.bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-handle-on,\n.bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-handle-off,\n.bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-label {\n  padding: 1px 5px;\n  font-size: 12px;\n  line-height: 1.5;\n}\n.bootstrap-switch.bootstrap-switch-small .bootstrap-switch-handle-on,\n.bootstrap-switch.bootstrap-switch-small .bootstrap-switch-handle-off,\n.bootstrap-switch.bootstrap-switch-small .bootstrap-switch-label {\n  padding: 5px 10px;\n  font-size: 12px;\n  line-height: 1.5;\n}\n.bootstrap-switch.bootstrap-switch-large .bootstrap-switch-handle-on,\n.bootstrap-switch.bootstrap-switch-large .bootstrap-switch-handle-off,\n.bootstrap-switch.bootstrap-switch-large .bootstrap-switch-label {\n  padding: 6px 16px;\n  font-size: 18px;\n  line-height: 1.3333333;\n}\n.bootstrap-switch.bootstrap-switch-disabled,\n.bootstrap-switch.bootstrap-switch-readonly,\n.bootstrap-switch.bootstrap-switch-indeterminate {\n  cursor: default !important;\n}\n.bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-handle-on,\n.bootstrap-switch.bootstrap-switch-readonly .bootstrap-switch-handle-on,\n.bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-handle-on,\n.bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-handle-off,\n.bootstrap-switch.bootstrap-switch-readonly .bootstrap-switch-handle-off,\n.bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-handle-off,\n.bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-label,\n.bootstrap-switch.bootstrap-switch-readonly .bootstrap-switch-label,\n.bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-label {\n  opacity: 0.5;\n  cursor: default !important;\n}\n.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-label,\n.bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-off .bootstrap-switch-label {\n  border-bottom-right-radius: 3px;\n  border-top-right-radius: 3px;\n}\n.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label,\n.bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-on .bootstrap-switch-label {\n  border-bottom-left-radius: 3px;\n  border-top-left-radius: 3px;\n}\n.frigb-popup-container {\n  display: block;\n  padding: 1em;\n  width: 30em;\n  max-width: 30em;\n  left: auto;\n  top: 65px;\n}\n.frigb-timepicker-input {\n  position: relative;\n}\n.frigb-color-input {\n  position: relative;\n}\n.frigb-color-block {\n  position: relative;\n  float: right;\n  width: 20px;\n  height: 20px;\n  border-radius: 5px;\n  margin-top: -26px;\n  margin-right: 8px;\n}\n.frigb-colorpicker {\n  height: 15em;\n  width: 95%;\n  position: absolute;\n  z-index: 999;\n  background-color: #fff;\n  border: 1px solid #ccc;\n  border-radius: 0.3em;\n  box-shadow: 0.2em 0.2em 0.1em #ccc;\n  padding: 0.5em;\n  margin-top: 0.5em;\n}\n.frigb-colorpicker .frigb-map {\n  display: block;\n  position: absolute;\n  top: 1em;\n  bottom: 1em;\n  left: 1em;\n  right: 2.3em;\n  user-select: none;\n  overflow: visible;\n  cursor: pointer;\n}\n.frigb-colorpicker .frigb-map.dark .frigb-pointer {\n  border-color: #fff;\n}\n.frigb-colorpicker .frigb-map.light .frigb-pointer {\n  border-color: #000;\n}\n.frigb-colorpicker .frigb-map .frigb-pointer {\n  position: absolute;\n  width: 10px;\n  height: 10px;\n  margin-left: -5px;\n  margin-bottom: -5px;\n  border-radius: 100%;\n  border: 1px solid #fff;\n}\n.frigb-colorpicker .frigb-map .frigb-background {\n  top: 0;\n  left: 0;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n}\n.frigb-colorpicker .frigb-map .frigb-background:before,\n.frigb-colorpicker .frigb-map .frigb-background:after {\n  display: block;\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n}\n.frigb-colorpicker .frigb-map .frigb-background:after {\n  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);\n}\n.frigb-colorpicker .frigb-map .frigb-background:before {\n  background: linear-gradient(to right, #fff 0%, rgba(255,255,255,0) 100%);\n}\n.frigb-colorpicker .frigb-slider {\n  position: absolute;\n  user-select: none;\n}\n.frigb-colorpicker .frigb-slider.frigb-vertical {\n  top: 0;\n  bottom: 0;\n  left: 50%;\n  width: 10px;\n  cursor: pointer;\n}\n.frigb-colorpicker .frigb-slider.frigb-vertical .frigb-track {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 50%;\n  width: 6px;\n  margin-left: -3px;\n}\n.frigb-colorpicker .frigb-slider .frigb-track {\n  border-radius: 3px;\n  background: #888;\n}\n.frigb-colorpicker .frigb-slider .frigb-pointer {\n  position: absolute;\n  bottom: 50%;\n  left: 50%;\n  width: 14px;\n  height: 14px;\n  background: #ddd;\n  margin-left: -7px;\n  margin-bottom: -7px;\n  border-radius: 14px;\n}\n.frigb-colorpicker .frigb-hue-slider {\n  display: block;\n  position: absolute;\n  top: 1em;\n  bottom: 1em;\n  left: auto;\n  right: 1.7em;\n}\n.frigb-colorpicker .frigb-hue-slider .frigb-track {\n  background: linear-gradient(to bottom, #f00 0%, #f09 10%, #cd00ff 20%, #3200ff 30%, #06f 40%, #00fffd 50%, #0f6 60%, #35ff00 70%, #cdff00 80%, #f90 90%, #f00 100%);\n}\n.frigb-saved {\n  font-size: 14px;\n  color: #3c763d;\n}\n.frigb-saved-inline {\n  position: absolute;\n  top: -1px;\n  right: 32px;\n  padding: 9px 2px;\n  font-size: 14px;\n  color: #3c763d;\n  text-align: center;\n  width: 33px;\n}\n.frigb-colorpicker-inline {\n  right: 56px;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function () {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for (var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if (item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function (modules, mediaQuery) {
+			if (typeof modules === "string") modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for (var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if (typeof id === "number") alreadyImportedModules[id] = true;
+			}
+			for (i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if (mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if (mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ },
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -165,17 +507,25 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _frig = __webpack_require__(9);
+	var _frig = __webpack_require__(8);
 
-	var _input_error_list = __webpack_require__(10);
+	var _input_error_list = __webpack_require__(9);
 
 	var _input_error_list2 = _interopRequireDefault(_input_error_list);
 
-	var _saved = __webpack_require__(14);
+	var _saved = __webpack_require__(13);
 
 	var _saved2 = _interopRequireDefault(_saved);
 
-	var _util = __webpack_require__(15);
+	var _util = __webpack_require__(14);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
+
+	var _default_prop_types = __webpack_require__(16);
+
+	var _default_prop_types2 = _interopRequireDefault(_default_prop_types);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -230,21 +580,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return Checkbox;
-	}(_react2.default.Component), _class2.displayName = 'FriggingBootstrap.Checkbox', _class2.defaultProps = __webpack_require__(16), _class2.propTypes = {
-	  inputHtml: _react2.default.PropTypes.object.isRequired,
-	  labelHtml: _react2.default.PropTypes.array.isRequired,
-
-	  valueLink: _react2.default.PropTypes.shape({
-	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number, _react2.default.PropTypes.bool]),
-	    requestChange: _react2.default.PropTypes.func
-	  }).isRequired,
-
-	  key: _react2.default.PropTypes.string,
-	  label: _react2.default.PropTypes.string,
-
-	  saved: _react2.default.PropTypes.bool,
-	  errors: _react2.default.PropTypes.array
-	}, _temp)) || _class);
+	}(_react2.default.Component), _class2.displayName = 'FriggingBootstrap.Checkbox', _class2.defaultProps = _default_props2.default, _class2.propTypes = _default_prop_types2.default, _temp)) || _class);
 	exports.default = Checkbox;
 
 /***/ },
@@ -255,77 +591,18 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	/*!
-	  Copyright (c) 2016 Jed Watson.
-	  Licensed under the MIT License (MIT), see
-	  http://jedwatson.github.io/classnames
-	*/
-	/* global define */
-
-	(function () {
-		'use strict';
-
-		var hasOwn = {}.hasOwnProperty;
-
-		function classNames() {
-			var classes = [];
-
-			for (var i = 0; i < arguments.length; i++) {
-				var arg = arguments[i];
-				if (!arg) continue;
-
-				var argType = typeof arg === 'undefined' ? 'undefined' : _typeof(arg);
-
-				if (argType === 'string' || argType === 'number') {
-					classes.push(arg);
-				} else if (Array.isArray(arg)) {
-					classes.push(classNames.apply(null, arg));
-				} else if (argType === 'object') {
-					for (var key in arg) {
-						if (hasOwn.call(arg, key) && arg[key]) {
-							classes.push(key);
-						}
-					}
-				}
-			}
-
-			return classes.join(' ');
-		}
-
-		if (typeof module !== 'undefined' && module.exports) {
-			module.exports = classNames;
-		} else if ("function" === 'function' && _typeof(__webpack_require__(8)) === 'object' && __webpack_require__(8)) {
-			// register as 'classnames', consistent with npm package name
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
-				return classNames;
-			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		} else {
-			window.classNames = classNames;
-		}
-	})();
+	module.exports = __WEBPACK_EXTERNAL_MODULE_7__;
 
 /***/ },
 /* 8 */
 /***/ function(module, exports) {
 
-	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
-
-	/* WEBPACK VAR INJECTION */}.call(exports, {}))
+	module.exports = __WEBPACK_EXTERNAL_MODULE_8__;
 
 /***/ },
 /* 9 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_9__;
-
-/***/ },
-/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -343,7 +620,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _input_error = __webpack_require__(11);
+	var _input_error = __webpack_require__(10);
 
 	var _input_error2 = _interopRequireDefault(_input_error);
 
@@ -387,7 +664,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = InputErrorList;
 
 /***/ },
-/* 11 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -405,11 +682,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactAddonsCssTransitionGroup = __webpack_require__(12);
+	var _reactAddonsCssTransitionGroup = __webpack_require__(11);
 
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
-	var _input_error_body = __webpack_require__(13);
+	var _input_error_body = __webpack_require__(12);
 
 	var _input_error_body2 = _interopRequireDefault(_input_error_body);
 
@@ -459,13 +736,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = InputError;
 
 /***/ },
-/* 12 */
+/* 11 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_12__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_11__;
 
 /***/ },
-/* 13 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -526,7 +803,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = InputErrorBody;
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -587,7 +864,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Saved;
 
 /***/ },
-/* 15 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -670,8 +947,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	var inputContainerCx = function inputContainerCx(props) {
-	  var _cx;
-
 	  var labelWidth = props.labelWidth || {};
 	  var inputWidth = {};
 	  // The width of the input is the number of columns left after the label
@@ -682,11 +957,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 
 	  var horizontalClasses = sizeClassNames(inputWidth, { offsets: false });
-	  return (0, _classnames2.default)((_cx = {}, _defineProperty(_cx, 'col-xs-12', props.layout === 'horizontal' && props.block), _defineProperty(_cx, horizontalClasses, props.layout === 'horizontal' && !props.block), _cx));
+	  return (0, _classnames2.default)(_defineProperty({
+	    'col-xs-12': props.layout === 'horizontal' && props.block
+	  }, horizontalClasses, props.layout === 'horizontal' && !props.block));
 	};
 
 	var formGroupCx = function formGroupCx(props) {
-	  var isCheckbox = props.inputHtml.type === 'checkbox';
+	  var inputHtml = props.inputHtml;
+
+	  var isCheckbox = inputHtml ? inputHtml.type === 'checkbox' : false;
 
 	  return (0, _classnames2.default)(Object.assign({
 	    'form-group': !isCheckbox,
@@ -701,22 +980,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.formGroupCx = formGroupCx;
 
 /***/ },
-/* 16 */
+/* 15 */
 /***/ function(module, exports) {
 
 	"use strict";
 
-	module.exports = {
+	var defaultProps = {
 	  // Sizes
 	  xs: 12,
-	  sm: undefined,
-	  md: undefined,
-	  lg: undefined,
-	  // Offsets
-	  xsOffset: undefined,
-	  smOffset: undefined,
-	  mdOffset: undefined,
-	  lgOffset: undefined,
 	  // Block changes inputs with layout: "horizontal" to use the full width of
 	  // their container and disables the label.
 	  block: false,
@@ -724,8 +995,44 @@ return /******/ (function(modules) { // webpackBootstrap
 	  labelWidth: {
 	    xs: 12,
 	    sm: 2
-	  }
+	  },
+	  inputHtml: {}
 	};
+
+	Object.freeze(defaultProps);
+
+	module.exports = defaultProps;
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(6);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var propTypes = {
+	  valueLink: _react2.default.PropTypes.shape({
+	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number, _react2.default.PropTypes.bool]),
+	    requestChange: _react2.default.PropTypes.func
+	  }).isRequired,
+	  inputHtml: _react2.default.PropTypes.object,
+	  className: _react2.default.PropTypes.string,
+	  saved: _react2.default.PropTypes.bool,
+	  errors: _react2.default.PropTypes.array
+	};
+
+	Object.freeze(propTypes);
+
+	exports.default = propTypes;
 
 /***/ },
 /* 17 */
@@ -758,29 +1065,37 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _colr2 = _interopRequireDefault(_colr);
 
-	var _frig = __webpack_require__(9);
+	var _frig = __webpack_require__(8);
 
-	var _input_error_list = __webpack_require__(10);
+	var _input_error_list = __webpack_require__(9);
 
 	var _input_error_list2 = _interopRequireDefault(_input_error_list);
 
-	var _saved = __webpack_require__(14);
+	var _saved = __webpack_require__(13);
 
 	var _saved2 = _interopRequireDefault(_saved);
 
-	var _label = __webpack_require__(21);
+	var _label = __webpack_require__(20);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _map = __webpack_require__(22);
+	var _map = __webpack_require__(21);
 
 	var _map2 = _interopRequireDefault(_map);
 
-	var _hue_slider = __webpack_require__(24);
+	var _hue_slider = __webpack_require__(23);
 
 	var _hue_slider2 = _interopRequireDefault(_hue_slider);
 
-	var _util = __webpack_require__(15);
+	var _util = __webpack_require__(14);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
+
+	var _default_prop_types = __webpack_require__(16);
+
+	var _default_prop_types2 = _interopRequireDefault(_default_prop_types);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -827,13 +1142,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: '_updateColrCache',
 	    value: function _updateColrCache(nextProps) {
-	      var nextColr = this._generateColr(nextProps.valueLink.value);
+	      var nextColr = this._normalizeColr(nextProps.valueLink.value);
 	      if (this.state.colr.toHex() === nextColr.toHex()) return;
 	      this.setState({ colr: nextColr });
 	    }
 	  }, {
-	    key: '_generateColr',
-	    value: function _generateColr(hex) {
+	    key: '_normalizeColr',
+	    value: function _normalizeColr(hex) {
 	      var colour = hex || '#fff';
 	      if (!colour.match(/^#?([a-f0-9]{3}|[a-f0-9]{6})$/i)) colour = '#fff';
 	      return _colr2.default.fromHex(colour);
@@ -921,18 +1236,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return Color;
-	}(_react2.default.Component), _class2.displayName = 'FriggingBootstrap.Color', _class2.defaultProps = Object.assign(__webpack_require__(16)), _class2.propTypes = {
-	  inputHtml: _react2.default.PropTypes.object,
-	  valueLink: _react2.default.PropTypes.shape({
-	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number, _react2.default.PropTypes.bool]),
-	    requestChange: _react2.default.PropTypes.func
-	  }).isRequired,
-
-	  focused: _react2.default.PropTypes.bool,
-
-	  saved: _react2.default.PropTypes.bool,
-	  errors: _react2.default.PropTypes.array
-	}, _temp)) || _class);
+	}(_react2.default.Component), _class2.displayName = 'FriggingBootstrap.Color', _class2.defaultProps = _default_props2.default, _class2.propTypes = Object.assign({}, _default_prop_types2.default, {
+	  focused: _react2.default.PropTypes.bool
+	}), _temp)) || _class);
 	exports.default = Color;
 
 /***/ },
@@ -943,674 +1249,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 19 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	'use strict';
-
-	/*
-	 * DEPENDENCIES
-	 */
-
-	var convert = __webpack_require__(20);
-
-	/*
-	 * CONSTRUCTOR
-	 */
-
-	function Colr() {
-	  if (this instanceof Colr === false) {
-	    return new Colr();
-	  }
-	  this._ = {};
-	}
-
-	/*
-	 * STATIC METHODS
-	 */
-
-	Colr.fromHex = function (hex) {
-	  return new Colr().fromHex(hex);
-	};
-
-	Colr.fromGrayscale = function (value) {
-	  return new Colr().fromGrayscale(value);
-	};
-
-	Colr.fromRgb = function (r, g, b) {
-	  return new Colr().fromRgb(r, g, b);
-	};
-
-	Colr.fromRgbArray = function (arr) {
-	  return new Colr().fromRgb(arr[0], arr[1], arr[2]);
-	};
-
-	Colr.fromRgbObject = function (obj) {
-	  return new Colr().fromRgb(obj.r, obj.g, obj.b);
-	};
-	Colr.fromHsl = function (h, s, l) {
-	  return new Colr().fromHsl(h, s, l);
-	};
-
-	Colr.fromHslArray = function (arr) {
-	  return new Colr().fromHsl(arr[0], arr[1], arr[2]);
-	};
-
-	Colr.fromHslObject = function (obj) {
-	  return new Colr().fromHsl(obj.h, obj.s, obj.l);
-	};
-
-	Colr.fromHsv = function (h, s, v) {
-	  return new Colr().fromHsv(h, s, v);
-	};
-
-	Colr.fromHsvArray = function (arr) {
-	  return new Colr().fromHsv(arr[0], arr[1], arr[2]);
-	};
-
-	Colr.fromHsvObject = function (obj) {
-	  return new Colr().fromHsv(obj.h, obj.s, obj.v);
-	};
-
-	/*
-	 * IMPORTERS
-	 */
-
-	// HEX
-
-	Colr.prototype.fromHex = function (input) {
-	  var value = convert.hex.rgb(input);
-	  this._ = { rgb: value };
-	  return this;
-	};
-
-	// GRAYSCALE
-
-	Colr.prototype.fromGrayscale = function (input) {
-	  input = clampByte(input);
-	  var value = convert.grayscale.rgb(input);
-	  this._ = { rgb: value };
-	  return this;
-	};
-
-	// RGB
-
-	Colr.prototype.fromRgb = function (r, g, b) {
-	  if (typeof r !== 'number' || typeof g !== 'number' || typeof b !== 'number') {
-	    throw new Error('Arguments must be numbers');
-	  }
-	  var value = clampRgb(r, g, b);
-	  this._ = { rgb: value };
-	  return this;
-	};
-
-	Colr.prototype.fromRgbArray = function (arr) {
-	  return this.fromRgb(arr[0], arr[1], arr[2]);
-	};
-
-	Colr.prototype.fromRgbObject = function (obj) {
-	  return this.fromRgb(obj.r, obj.g, obj.b);
-	};
-
-	// HSL
-
-	Colr.prototype.fromHsl = function (h, s, l) {
-	  if (typeof h !== 'number' || typeof s !== 'number' || typeof l !== 'number') {
-	    throw new Error('Arguments must be numbers');
-	  }
-	  this._ = { hsl: clampHsx(h, s, l) };
-	  return this;
-	};
-
-	Colr.prototype.fromHslArray = function (arr) {
-	  return this.fromHsl(arr[0], arr[1], arr[2]);
-	};
-
-	Colr.prototype.fromHslObject = function (obj) {
-	  return this.fromHsl(obj.h, obj.s, obj.l);
-	};
-
-	// HSV
-
-	Colr.prototype.fromHsv = function (h, s, v) {
-	  if (typeof h !== 'number' || typeof s !== 'number' || typeof v !== 'number') {
-	    throw new Error('Arguments must be numbers');
-	  }
-	  this._ = { hsv: clampHsx(h, s, v) };
-	  return this;
-	};
-
-	Colr.prototype.fromHsvArray = function (arr) {
-	  return this.fromHsv(arr[0], arr[1], arr[2]);
-	};
-
-	Colr.prototype.fromHsvObject = function (obj) {
-	  return this.fromHsv(obj.h, obj.s, obj.v);
-	};
-
-	/*
-	 * EXPORTERS
-	 */
-
-	// HEX
-
-	Colr.prototype.toHex = function () {
-	  var cached = this._.hex;
-	  if (cached !== undefined) {
-	    return cached;
-	  }
-
-	  var input;
-	  var cachedFrom = this._.rgb;
-
-	  if (cachedFrom !== undefined) {
-	    input = cachedFrom;
-	  } else {
-	    input = this.toRawRgbArray();
-	  }
-
-	  input[0] = Math.round(input[0]);
-	  input[1] = Math.round(input[1]);
-	  input[2] = Math.round(input[2]);
-
-	  var value = convert.rgb.hex(input);
-	  this._.hex = value;
-
-	  return value;
-	};
-
-	// GRAYSCALE
-
-	Colr.prototype.toGrayscale = function () {
-	  var cached = this._.grayscale;
-	  if (cached !== undefined) {
-	    return cached;
-	  }
-
-	  var input;
-	  var cachedFrom = this._.rgb;
-
-	  if (cachedFrom !== undefined) {
-	    input = cachedFrom;
-	  } else {
-	    input = this.toRawRgbArray();
-	  }
-
-	  var value = convert.rgb.grayscale(input);
-	  this._.grayscale = value;
-	  return value;
-	};
-
-	// RGB
-
-	Colr.prototype.toRawRgbArray = function () {
-	  var cached = this._.rgb;
-	  if (cached !== undefined) {
-	    return cached;
-	  }
-
-	  var value;
-
-	  if ((value = this._.hsv) !== undefined) {
-	    value = convert.hsv.rgb(value);
-	  } else if ((value = this._.hsl) !== undefined) {
-	    value = convert.hsl.rgb(value);
-	  } else {
-	    throw new Error('No data to convert');
-	  }
-
-	  this._.rgb = value;
-	  return value;
-	};
-
-	Colr.prototype.toRawRgbObject = function () {
-	  var arr = this.toRawRgbArray();
-	  return { r: arr[0], g: arr[1], b: arr[2] };
-	};
-
-	Colr.prototype.toRgbArray = function () {
-	  var arr = this.toRawRgbArray();
-	  return [Math.round(arr[0]), Math.round(arr[1]), Math.round(arr[2])];
-	};
-
-	Colr.prototype.toRgbObject = function () {
-	  var arr = this.toRgbArray();
-	  return { r: arr[0], g: arr[1], b: arr[2] };
-	};
-
-	// HSL
-
-	Colr.prototype.toRawHslArray = function () {
-	  var cached = this._.hsl;
-	  if (cached !== undefined) {
-	    return cached;
-	  }
-
-	  var value;
-
-	  if ((value = this._.hsv) !== undefined) {
-	    value = convert.hsv.hsl(value);
-	  } else if ((value = this._.rgb) !== undefined) {
-	    value = convert.rgb.hsl(value);
-	  } else {
-	    throw new Error('No data to convert');
-	  }
-
-	  this._.hsl = value;
-	  return value;
-	};
-
-	Colr.prototype.toRawHslObject = function () {
-	  var arr = this.toRawHslArray();
-	  return { h: arr[0], s: arr[1], l: arr[2] };
-	};
-
-	Colr.prototype.toHslArray = function () {
-	  var arr = this.toRawHslArray();
-	  return [Math.round(arr[0]), Math.round(arr[1]), Math.round(arr[2])];
-	};
-
-	Colr.prototype.toHslObject = function () {
-	  var arr = this.toHslArray();
-	  return { h: arr[0], s: arr[1], l: arr[2] };
-	};
-
-	// HSV
-
-	Colr.prototype.toRawHsvArray = function () {
-	  var cached = this._.hsv;
-	  if (cached !== undefined) {
-	    return cached;
-	  }
-
-	  var value;
-
-	  if ((value = this._.hsl) !== undefined) {
-	    value = convert.hsl.hsv(value);
-	  } else if ((value = this._.rgb) !== undefined) {
-	    value = convert.rgb.hsv(value);
-	  } else {
-	    throw new Error('No data to convert');
-	  }
-
-	  this._.hsv = value;
-	  return value;
-	};
-
-	Colr.prototype.toRawHsvObject = function () {
-	  var arr = this.toRawHsvArray();
-	  return { h: arr[0], s: arr[1], v: arr[2] };
-	};
-
-	Colr.prototype.toHsvArray = function () {
-	  var arr = this.toRawHsvArray();
-	  return [Math.round(arr[0]), Math.round(arr[1]), Math.round(arr[2])];
-	};
-
-	Colr.prototype.toHsvObject = function () {
-	  var arr = this.toHsvArray();
-	  return { h: arr[0], s: arr[1], v: arr[2] };
-	};
-
-	/*
-	 * MODIFIERS
-	 */
-
-	Colr.prototype.lighten = function (amount) {
-	  var hsl = this.toRawHslArray();
-	  hsl[2] = clampPercentage(hsl[2] + amount);
-	  this._ = { hsl: hsl };
-	  return this;
-	};
-
-	Colr.prototype.darken = function (amount) {
-	  var hsl = this.toRawHslArray();
-	  hsl[2] = clampPercentage(hsl[2] - amount);
-	  this._ = { hsl: hsl };
-	  return this;
-	};
-
-	/*
-	 * MISC
-	 */
-
-	Colr.prototype.clone = function () {
-	  var colr = new Colr();
-	  colr._.hex = this._.hex;
-	  colr._.grayscale = this._.grayscale;
-
-	  if (this._.rgb !== undefined) {
-	    colr._.rgb = this._.rgb.slice(0);
-	  }
-	  if (this._.hsv !== undefined) {
-	    colr._.hsv = this._.hsv.slice(0);
-	  }
-	  if (this._.hsl !== undefined) {
-	    colr._.hsl = this._.hsl.slice(0);
-	  }
-
-	  return colr;
-	};
-
-	/*
-	 * UTILS
-	 */
-
-	function clampPercentage(val) {
-	  return Math.max(Math.min(val, 100), 0);
-	}
-
-	function clampByte(byte) {
-	  return Math.max(Math.min(byte, 255), 0);
-	}
-
-	function clampRgb(r, g, b) {
-	  return [Math.max(Math.min(r, 255), 0), Math.max(Math.min(g, 255), 0), Math.max(Math.min(b, 255), 0)];
-	}
-
-	function clampHsx(h, s, x) {
-	  return [Math.max(Math.min(h, 360), 0), Math.max(Math.min(s, 100), 0), Math.max(Math.min(x, 100), 0)];
-	}
-
-	module.exports = Colr;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_19__;
 
 /***/ },
 /* 20 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = {
-	  grayscale: {
-	    rgb: grayscale2rgb
-	  },
-	  hex: {
-	    rgb: hex2rgb
-	  },
-	  rgb: {
-	    hsl: rgb2hsl,
-	    hsv: rgb2hsv,
-	    hex: rgb2hex,
-	    grayscale: rgb2grayscale
-	  },
-	  hsl: {
-	    rgb: hsl2rgb,
-	    hsv: hsl2hsv
-	  },
-	  hsv: {
-	    rgb: hsv2rgb,
-	    hsl: hsv2hsl
-	  }
-	};
-
-	// convert a charcode to a hex val
-	function hexVal(c) {
-	  return c < 58 ? c - 48 : // 0 - 9
-	  c < 71 ? c - 55 : // A - F
-	  c - 87 // a - f
-	  ;
-	}
-
-	function hex2rgb(hex) {
-	  var i = hex[0] === '#' ? 1 : 0;
-	  var len = hex.length;
-
-	  if (len - i < 3) {
-	    throw new Error('hex input must be at least three chars long');
-	  }
-
-	  var r, g, b;
-
-	  var h1 = hexVal(hex.charCodeAt(0 + i));
-	  var h2 = hexVal(hex.charCodeAt(1 + i));
-	  var h3 = hexVal(hex.charCodeAt(2 + i));
-
-	  if (len - i >= 6) {
-	    r = (h1 << 4) + h2;
-	    g = (h3 << 4) + hexVal(hex.charCodeAt(3 + i));
-	    b = (hexVal(hex.charCodeAt(4 + i)) << 4) + hexVal(hex.charCodeAt(5 + i));
-	  } else {
-	    r = (h1 << 4) + h1;
-	    g = (h2 << 4) + h2;
-	    b = (h3 << 4) + h3;
-	  }
-
-	  if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255) {
-	    throw new Error('hex input is invalid');
-	  }
-
-	  return [r, g, b];
-	}
-
-	function rgb2hex(rgb) {
-	  return '#' + ('000000' + ((rgb[0] << 16) + (rgb[1] << 8) + rgb[2]).toString(16)).slice(-6);
-	}
-
-	function rgb2hsl(rgb) {
-	  var r = rgb[0] / 255;
-	  var g = rgb[1] / 255;
-	  var b = rgb[2] / 255;
-
-	  var min = Math.min(r, g, b);
-	  var max = Math.max(r, g, b);
-	  var delta = max - min;
-	  var h, s, l;
-
-	  if (max === min) {
-	    h = 0;
-	  } else if (r === max) {
-	    h = (g - b) / delta;
-	  } else if (g === max) {
-	    h = 2 + (b - r) / delta;
-	  } else if (b === max) {
-	    h = 4 + (r - g) / delta;
-	  }
-
-	  h = Math.min(h * 60, 360);
-
-	  if (h < 0) {
-	    h += 360;
-	  }
-
-	  l = (min + max) / 2;
-
-	  if (max === min) {
-	    s = 0;
-	  } else if (l <= 0.5) {
-	    s = delta / (max + min);
-	  } else {
-	    s = delta / (2 - max - min);
-	  }
-
-	  return [h, s * 100, l * 100];
-	}
-
-	function rgb2hsv(rgb) {
-	  var r = rgb[0];
-	  var g = rgb[1];
-	  var b = rgb[2];
-	  var min = Math.min(r, g, b);
-	  var max = Math.max(r, g, b);
-	  var delta = max - min;
-	  var h, s, v;
-
-	  if (max === 0) {
-	    s = 0;
-	  } else {
-	    s = delta / max * 100;
-	  }
-
-	  if (max === min) {
-	    h = 0;
-	  } else if (r === max) {
-	    h = (g - b) / delta;
-	  } else if (g === max) {
-	    h = 2 + (b - r) / delta;
-	  } else if (b === max) {
-	    h = 4 + (r - g) / delta;
-	  }
-
-	  h = Math.min(h * 60, 360);
-
-	  if (h < 0) {
-	    h += 360;
-	  }
-
-	  v = max / 255 * 100;
-
-	  return [h, s, v];
-	}
-
-	function hsl2rgb(hsl) {
-	  var h = hsl[0] / 360;
-	  var s = hsl[1] / 100;
-	  var l = hsl[2] / 100;
-
-	  var r, g, b;
-
-	  if (s === 0) {
-	    // monochrome
-	    r = g = b = l;
-	  } else {
-	    var q = l < 0.5 ? l * (s + 1) : l + s - l * s;
-	    var p = 2 * l - q;
-	    var t;
-
-	    // red
-	    t = h + 1 / 3;
-	    if (t < 0) {
-	      t += 1;
-	    } else if (t > 1) {
-	      t -= 1;
-	    }
-	    if (t < 1 / 6) {
-	      r = p + (q - p) * t * 6;
-	    } else if (t < 1 / 2) {
-	      r = q;
-	    } else if (t < 2 / 3) {
-	      r = p + (q - p) * (2 / 3 - t) * 6;
-	    } else {
-	      r = p;
-	    }
-
-	    // green
-	    t = h;
-	    if (t < 0) {
-	      t += 1;
-	    } else if (t > 1) {
-	      t -= 1;
-	    }
-	    if (t < 1 / 6) {
-	      g = p + (q - p) * t * 6;
-	    } else if (t < 1 / 2) {
-	      g = q;
-	    } else if (t < 2 / 3) {
-	      g = p + (q - p) * (2 / 3 - t) * 6;
-	    } else {
-	      g = p;
-	    }
-
-	    // blue
-	    t = h - 1 / 3;
-	    if (t < 0) {
-	      t += 1;
-	    } else if (t > 1) {
-	      t -= 1;
-	    }
-	    if (t < 1 / 6) {
-	      b = p + (q - p) * t * 6;
-	    } else if (t < 1 / 2) {
-	      b = q;
-	    } else if (t < 2 / 3) {
-	      b = p + (q - p) * (2 / 3 - t) * 6;
-	    } else {
-	      b = p;
-	    }
-	  }
-
-	  return [r * 255, g * 255, b * 255];
-	}
-
-	function hsl2hsv(hsl) {
-	  var h = hsl[0];
-	  var s = hsl[1] / 100;
-	  var l = hsl[2] / 100;
-	  var sv, v;
-
-	  if (s === 0) {
-	    return [h, 0, l * 100];
-	  }
-
-	  if (l === 0) {
-	    return [h, 0, 0];
-	  }
-
-	  l *= 2;
-	  s *= l <= 1 ? l : 2 - l;
-	  v = (l + s) / 2;
-	  sv = 2 * s / (l + s);
-	  return [h, sv * 100, v * 100];
-	}
-
-	function hsv2rgb(hsv) {
-	  var h = hsv[0] / 60;
-	  var s = hsv[1] / 100;
-	  var v = hsv[2] / 100;
-
-	  var hi = Math.floor(h) % 6;
-
-	  var f = h - Math.floor(h);
-	  var p = 255 * v * (1 - s);
-	  var q = 255 * v * (1 - s * f);
-	  var t = 255 * v * (1 - s * (1 - f));
-	  v = 255 * v;
-
-	  switch (hi) {
-	    case 0:
-	      return [v, t, p];
-	    case 1:
-	      return [q, v, p];
-	    case 2:
-	      return [p, v, t];
-	    case 3:
-	      return [p, q, v];
-	    case 4:
-	      return [t, p, v];
-	    case 5:
-	      return [v, p, q];
-	  }
-	}
-
-	function hsv2hsl(hsv) {
-	  var h = hsv[0];
-	  var s = hsv[1] / 100;
-	  var v = hsv[2] / 100;
-	  var sl, l;
-
-	  if (s === 0) {
-	    return [h, 0, v * 100];
-	  }
-
-	  if (v === 0) {
-	    return [h, 0, 0];
-	  }
-
-	  l = (2 - s) * v;
-	  sl = s * v;
-	  sl /= l <= 1 ? l : 2 - l;
-	  l /= 2;
-	  return [h, sl * 100, l * 100];
-	}
-
-	function grayscale2rgb(value) {
-	  return [value, value, value];
-	}
-
-	function rgb2grayscale(rgb) {
-	  return (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
-	}
-
-/***/ },
-/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1628,7 +1272,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _util = __webpack_require__(15);
+	var _util = __webpack_require__(14);
 
 	var _classnames = __webpack_require__(7);
 
@@ -1684,7 +1328,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return Label;
-	}(_react2.default.Component), _class.propTypes = {
+	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Label', _class.propTypes = {
 	  labelWidth: _react2.default.PropTypes.object.isRequired,
 	  layout: _react2.default.PropTypes.string.isRequired,
 	  block: _react2.default.PropTypes.bool,
@@ -1696,7 +1340,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Label;
 
 /***/ },
-/* 22 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1726,9 +1370,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _draggable = __webpack_require__(23);
+	var _draggable = __webpack_require__(22);
 
 	var _draggable2 = _interopRequireDefault(_draggable);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1801,7 +1449,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return ColorMap;
-	}(_react2.default.Component), _class2.displayName = 'ColorMap', _class2.defaultProps = __webpack_require__(16), _class2.propTypes = {
+	}(_react2.default.Component), _class2.displayName = 'ColorMap', _class2.defaultProps = _default_props2.default, _class2.propTypes = {
 	  hsv: _react2.default.PropTypes.shape({
 	    h: _react2.default.PropTypes.number.isRequired,
 	    s: _react2.default.PropTypes.number.isRequired,
@@ -1820,7 +1468,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = ColorMap;
 
 /***/ },
-/* 23 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1831,21 +1479,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	exports.default = Draggable;
-
-	var _react = __webpack_require__(6);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	function Draggable(_ref) {
+	exports.default = function (_ref) {
 	  var updateClientCoords = _ref.updateClientCoords;
 
 	  return function (ComponentClass) {
@@ -1853,20 +1487,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    // eslint-disable-line arrow-body-style
 	    return _temp2 = _class = function (_React$Component) {
-	      _inherits(_class, _React$Component);
+	      _inherits(Draggable, _React$Component);
 
-	      function _class() {
+	      function Draggable() {
 	        var _Object$getPrototypeO;
 
 	        var _temp, _this, _ret;
 
-	        _classCallCheck(this, _class);
+	        _classCallCheck(this, Draggable);
 
 	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
 	          args[_key] = arguments[_key];
 	        }
 
-	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(_class)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Draggable)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
 	          dragging: false
 	        }, _this.getPercentageValue = function (value) {
 	          var percentage = value / _this.props.max * 100;
@@ -1895,7 +1529,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	      }
 
-	      _createClass(_class, [{
+	      _createClass(Draggable, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	          document.addEventListener('mousemove', this._onMouseMove);
@@ -1945,7 +1579,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      }]);
 
-	      return _class;
+	      return Draggable;
 	    }(_react2.default.Component), _class.displayName = 'Draggable', _class.propTypes = {
 	      clientY: _react2.default.PropTypes.number,
 	      clientX: _react2.default.PropTypes.number,
@@ -1954,10 +1588,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	      max: 1
 	    }, _temp2;
 	  };
-	}
+	};
+
+	var _react = __webpack_require__(6);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /***/ },
-/* 24 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1983,9 +1629,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _colr2 = _interopRequireDefault(_colr);
 
-	var _draggable = __webpack_require__(23);
+	var _draggable = __webpack_require__(22);
 
 	var _draggable2 = _interopRequireDefault(_draggable);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2038,7 +1688,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return HueSlider;
-	}(_react2.default.Component), _class2.displayName = 'HueSlider', _class2.defaultProps = __webpack_require__(16), _class2.propTypes = {
+	}(_react2.default.Component), _class2.displayName = 'HueSlider', _class2.defaultProps = _default_props2.default, _class2.propTypes = {
 	  hsv: _react2.default.PropTypes.shape({
 	    h: _react2.default.PropTypes.number.isRequired
 	  }).isRequired,
@@ -2049,7 +1699,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = HueSlider;
 
 /***/ },
-/* 25 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2066,6 +1716,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _react = __webpack_require__(6);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2119,13 +1773,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return FormErrorList;
-	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Errors', _class.defaultProps = __webpack_require__(16), _class.propTypes = {
+	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Errors', _class.defaultProps = _default_props2.default, _class.propTypes = {
 	  errors: _react2.default.PropTypes.array.isRequired
 	}, _temp);
 	exports.default = FormErrorList;
 
 /***/ },
-/* 26 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2151,19 +1805,27 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _input_error_list = __webpack_require__(10);
+	var _input_error_list = __webpack_require__(9);
 
 	var _input_error_list2 = _interopRequireDefault(_input_error_list);
 
-	var _saved = __webpack_require__(14);
+	var _saved = __webpack_require__(13);
 
 	var _saved2 = _interopRequireDefault(_saved);
 
-	var _label = __webpack_require__(21);
+	var _label = __webpack_require__(20);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _util = __webpack_require__(15);
+	var _util = __webpack_require__(14);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
+
+	var _default_prop_types = __webpack_require__(16);
+
+	var _default_prop_types2 = _interopRequireDefault(_default_prop_types);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2217,7 +1879,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        className: 'thumbnail',
 	        height: '125',
 	        width: '125',
-	        src: this.props.valueLink.value
+	        src: this.props.valueLink.value,
+	        role: 'presentation'
 	      });
 	    }
 	  }, {
@@ -2283,27 +1946,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return FileInput;
-	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.FileInput', _class.defaultProps = Object.assign(__webpack_require__(16), {
-	  prefix: undefined,
-	  suffix: undefined
-	}), _class.propTypes = {
-	  inputHtml: _react2.default.PropTypes.object,
-	  valueLink: _react2.default.PropTypes.shape({
-	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number, _react2.default.PropTypes.bool]),
-	    requestChange: _react2.default.PropTypes.func
-	  }).isRequired,
-
-	  className: _react2.default.PropTypes.string,
+	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.FileInput', _class.defaultProps = _default_props2.default, _class.propTypes = Object.assign({}, _default_prop_types2.default, {
 	  prefix: _react2.default.PropTypes.string,
-	  suffix: _react2.default.PropTypes.string,
-
-	  saved: _react2.default.PropTypes.bool,
-	  errors: _react2.default.PropTypes.array
-	}, _temp);
+	  suffix: _react2.default.PropTypes.string
+	}), _temp);
 	exports.default = FileInput;
 
 /***/ },
-/* 27 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2320,14 +1970,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _react = __webpack_require__(6);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(18);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _default_props = __webpack_require__(16);
-
-	var _default_props2 = _interopRequireDefault(_default_props);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2349,17 +1991,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(Form, [{
 	    key: '_formHtml',
 	    value: function _formHtml() {
-	      var className = this.props.layout ? 'form-' + this.props.layout : '';
+	      var layoutClassName = 'form-' + this.props.layout;
+	      var className = this.props.formHtml ? this.props.formHtml.className : '';
 	      return Object.assign({}, this.props.formHtml, {
 	        ref: 'form',
-	        className: ((this.props.formHtml.className || '') + ' ' + className).trim()
+	        className: (className + ' ' + layoutClassName).trim()
 	      });
-	    }
-	  }, {
-	    key: 'formData',
-	    value: function formData() {
-	      var formElement = _reactDom2.default.findDOMNode(this.refs.form);
-	      return new FormData(formElement);
 	    }
 	  }, {
 	    key: 'render',
@@ -2374,7 +2011,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  return Form;
 	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Form', _class.defaultProps = {
-	  layout: _default_props2.default.layout
+	  layout: 'vertical'
 	}, _class.propTypes = {
 	  formHtml: _react2.default.PropTypes.shape({
 	    className: _react2.default.PropTypes.string
@@ -2385,7 +2022,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Form;
 
 /***/ },
-/* 28 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2407,19 +2044,27 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _input_error_list = __webpack_require__(10);
+	var _input_error_list = __webpack_require__(9);
 
 	var _input_error_list2 = _interopRequireDefault(_input_error_list);
 
-	var _saved = __webpack_require__(14);
+	var _saved = __webpack_require__(13);
 
 	var _saved2 = _interopRequireDefault(_saved);
 
-	var _label = __webpack_require__(21);
+	var _label = __webpack_require__(20);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _util = __webpack_require__(15);
+	var _util = __webpack_require__(14);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
+
+	var _default_prop_types = __webpack_require__(16);
+
+	var _default_prop_types2 = _interopRequireDefault(_default_prop_types);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2459,7 +2104,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: '_input',
 	    value: function _input() {
-	      return this.props.inputWrapper(this._inputHtml());
+	      var props = this._inputHtml();
+	      return _react2.default.createElement('input', props);
 	    }
 	  }, {
 	    key: '_inputSuffix',
@@ -2517,35 +2163,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return Input;
-	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Input', _class.propTypes = {
-	  inputHtml: _react2.default.PropTypes.shape({
-	    type: _react2.default.PropTypes.string.isRequired
-	  }).isRequired,
-	  inputWrapper: _react2.default.PropTypes.func.isRequired,
-
-	  valueLink: _react2.default.PropTypes.shape({
-	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number, _react2.default.PropTypes.bool]),
-	    requestChange: _react2.default.PropTypes.func
-	  }).isRequired,
-
-	  className: _react2.default.PropTypes.string,
+	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Input', _class.propTypes = Object.assign({}, _default_prop_types2.default, {
 	  prefix: _react2.default.PropTypes.string,
-	  suffix: _react2.default.PropTypes.string,
-
-	  saved: _react2.default.PropTypes.bool,
-	  errors: _react2.default.PropTypes.array
-	}, _class.defaultProps = Object.assign(__webpack_require__(16), {
+	  suffix: _react2.default.PropTypes.string
+	}), _class.defaultProps = Object.assign({}, _default_props2.default, {
 	  // Bootstrap input addon texts
 	  prefix: undefined,
-	  suffix: undefined,
-	  inputWrapper: function inputWrapper(inputProps) {
-	    return _react2.default.createElement('input', inputProps);
-	  }
+	  suffix: undefined
 	}), _temp);
 	exports.default = Input;
 
 /***/ },
-/* 29 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2567,23 +2196,31 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _numeral = __webpack_require__(30);
+	var _numeral = __webpack_require__(29);
 
 	var _numeral2 = _interopRequireDefault(_numeral);
 
-	var _input_error_list = __webpack_require__(10);
+	var _input_error_list = __webpack_require__(9);
 
 	var _input_error_list2 = _interopRequireDefault(_input_error_list);
 
-	var _saved = __webpack_require__(14);
+	var _saved = __webpack_require__(13);
 
 	var _saved2 = _interopRequireDefault(_saved);
 
-	var _label = __webpack_require__(21);
+	var _label = __webpack_require__(20);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _util = __webpack_require__(15);
+	var _util = __webpack_require__(14);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
+
+	var _default_prop_types = __webpack_require__(16);
+
+	var _default_prop_types2 = _interopRequireDefault(_default_prop_types);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2615,8 +2252,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(Number, [{
 	    key: '_formatNumber',
 	    value: function _formatNumber(currentNumber) {
-	      if (!this.props.format) return currentNumber;
-
 	      return currentNumber ? currentNumber.format(this.props.format) : '';
 	    }
 	  }, {
@@ -2654,12 +2289,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 
 	      return _react2.default.createElement('input', inputProps);
-	    }
-	  }, {
-	    key: '_isNumber',
-	    value: function _isNumber(value) {
-	      var number = parseFloat(value);
-	      return !Number.isNaN(parseFloat(number)) && Number.isFinite(number);
 	    }
 	  }, {
 	    key: '_toNumeral',
@@ -2700,709 +2329,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return Number;
-	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Number', _class.defaultProps = Object.assign(__webpack_require__(16), {
+	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Number', _class.defaultProps = Object.assign({}, _default_props2.default, {
 	  format: '0,0[.][00]'
-	}), _class.propTypes = {
-	  inputHtml: _react2.default.PropTypes.object,
-	  format: _react2.default.PropTypes.string,
-
-	  valueLink: _react2.default.PropTypes.shape({
-	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number, _react2.default.PropTypes.bool]),
-	    requestChange: _react2.default.PropTypes.func
-	  }).isRequired,
-
-	  saved: _react2.default.PropTypes.bool,
-	  errors: _react2.default.PropTypes.array
-	}, _temp2);
+	}), _class.propTypes = Object.assign({}, _default_prop_types2.default, {
+	  format: _react2.default.PropTypes.string
+	}), _temp2);
 	exports.default = Number;
 
 /***/ },
-/* 30 */
-/***/ function(module, exports, __webpack_require__) {
+/* 29 */
+/***/ function(module, exports) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
-
-	/*!
-	 * numeral.js
-	 * version : 1.5.3
-	 * author : Adam Draper
-	 * license : MIT
-	 * http://adamwdraper.github.com/Numeral-js/
-	 */
-
-	(function () {
-
-	    /************************************
-	        Constants
-	    ************************************/
-
-	    var _numeral,
-	        VERSION = '1.5.3',
-
-	    // internal storage for language config files
-	    languages = {},
-	        currentLanguage = 'en',
-	        zeroFormat = null,
-	        defaultFormat = '0,0',
-
-	    // check for nodeJS
-	    hasModule = typeof module !== 'undefined' && module.exports;
-
-	    /************************************
-	        Constructors
-	    ************************************/
-
-	    // Numeral prototype object
-	    function Numeral(number) {
-	        this._value = number;
-	    }
-
-	    /**
-	     * Implementation of toFixed() that treats floats more like decimals
-	     *
-	     * Fixes binary rounding issues (eg. (0.615).toFixed(2) === '0.61') that present
-	     * problems for accounting- and finance-related software.
-	     */
-	    function toFixed(value, precision, roundingFunction, optionals) {
-	        var power = Math.pow(10, precision),
-	            optionalsRegExp,
-	            output;
-
-	        //roundingFunction = (roundingFunction !== undefined ? roundingFunction : Math.round);
-	        // Multiply up by precision, round accurately, then divide and use native toFixed():
-	        output = (roundingFunction(value * power) / power).toFixed(precision);
-
-	        if (optionals) {
-	            optionalsRegExp = new RegExp('0{1,' + optionals + '}$');
-	            output = output.replace(optionalsRegExp, '');
-	        }
-
-	        return output;
-	    }
-
-	    /************************************
-	        Formatting
-	    ************************************/
-
-	    // determine what type of formatting we need to do
-	    function formatNumeral(n, format, roundingFunction) {
-	        var output;
-
-	        // figure out what kind of format we are dealing with
-	        if (format.indexOf('$') > -1) {
-	            // currency!!!!!
-	            output = formatCurrency(n, format, roundingFunction);
-	        } else if (format.indexOf('%') > -1) {
-	            // percentage
-	            output = formatPercentage(n, format, roundingFunction);
-	        } else if (format.indexOf(':') > -1) {
-	            // time
-	            output = formatTime(n, format);
-	        } else {
-	            // plain ol' numbers or bytes
-	            output = formatNumber(n._value, format, roundingFunction);
-	        }
-
-	        // return string
-	        return output;
-	    }
-
-	    // revert to number
-	    function unformatNumeral(n, string) {
-	        var stringOriginal = string,
-	            thousandRegExp,
-	            millionRegExp,
-	            billionRegExp,
-	            trillionRegExp,
-	            suffixes = ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-	            bytesMultiplier = false,
-	            power;
-
-	        if (string.indexOf(':') > -1) {
-	            n._value = unformatTime(string);
-	        } else {
-	            if (string === zeroFormat) {
-	                n._value = 0;
-	            } else {
-	                if (languages[currentLanguage].delimiters.decimal !== '.') {
-	                    string = string.replace(/\./g, '').replace(languages[currentLanguage].delimiters.decimal, '.');
-	                }
-
-	                // see if abbreviations are there so that we can multiply to the correct number
-	                thousandRegExp = new RegExp('[^a-zA-Z]' + languages[currentLanguage].abbreviations.thousand + '(?:\\)|(\\' + languages[currentLanguage].currency.symbol + ')?(?:\\))?)?$');
-	                millionRegExp = new RegExp('[^a-zA-Z]' + languages[currentLanguage].abbreviations.million + '(?:\\)|(\\' + languages[currentLanguage].currency.symbol + ')?(?:\\))?)?$');
-	                billionRegExp = new RegExp('[^a-zA-Z]' + languages[currentLanguage].abbreviations.billion + '(?:\\)|(\\' + languages[currentLanguage].currency.symbol + ')?(?:\\))?)?$');
-	                trillionRegExp = new RegExp('[^a-zA-Z]' + languages[currentLanguage].abbreviations.trillion + '(?:\\)|(\\' + languages[currentLanguage].currency.symbol + ')?(?:\\))?)?$');
-
-	                // see if bytes are there so that we can multiply to the correct number
-	                for (power = 0; power <= suffixes.length; power++) {
-	                    bytesMultiplier = string.indexOf(suffixes[power]) > -1 ? Math.pow(1024, power + 1) : false;
-
-	                    if (bytesMultiplier) {
-	                        break;
-	                    }
-	                }
-
-	                // do some math to create our number
-	                n._value = (bytesMultiplier ? bytesMultiplier : 1) * (stringOriginal.match(thousandRegExp) ? Math.pow(10, 3) : 1) * (stringOriginal.match(millionRegExp) ? Math.pow(10, 6) : 1) * (stringOriginal.match(billionRegExp) ? Math.pow(10, 9) : 1) * (stringOriginal.match(trillionRegExp) ? Math.pow(10, 12) : 1) * (string.indexOf('%') > -1 ? 0.01 : 1) * ((string.split('-').length + Math.min(string.split('(').length - 1, string.split(')').length - 1)) % 2 ? 1 : -1) * Number(string.replace(/[^0-9\.]+/g, ''));
-
-	                // round if we are talking about bytes
-	                n._value = bytesMultiplier ? Math.ceil(n._value) : n._value;
-	            }
-	        }
-	        return n._value;
-	    }
-
-	    function formatCurrency(n, format, roundingFunction) {
-	        var symbolIndex = format.indexOf('$'),
-	            openParenIndex = format.indexOf('('),
-	            minusSignIndex = format.indexOf('-'),
-	            space = '',
-	            spliceIndex,
-	            output;
-
-	        // check for space before or after currency
-	        if (format.indexOf(' $') > -1) {
-	            space = ' ';
-	            format = format.replace(' $', '');
-	        } else if (format.indexOf('$ ') > -1) {
-	            space = ' ';
-	            format = format.replace('$ ', '');
-	        } else {
-	            format = format.replace('$', '');
-	        }
-
-	        // format the number
-	        output = formatNumber(n._value, format, roundingFunction);
-
-	        // position the symbol
-	        if (symbolIndex <= 1) {
-	            if (output.indexOf('(') > -1 || output.indexOf('-') > -1) {
-	                output = output.split('');
-	                spliceIndex = 1;
-	                if (symbolIndex < openParenIndex || symbolIndex < minusSignIndex) {
-	                    // the symbol appears before the "(" or "-"
-	                    spliceIndex = 0;
-	                }
-	                output.splice(spliceIndex, 0, languages[currentLanguage].currency.symbol + space);
-	                output = output.join('');
-	            } else {
-	                output = languages[currentLanguage].currency.symbol + space + output;
-	            }
-	        } else {
-	            if (output.indexOf(')') > -1) {
-	                output = output.split('');
-	                output.splice(-1, 0, space + languages[currentLanguage].currency.symbol);
-	                output = output.join('');
-	            } else {
-	                output = output + space + languages[currentLanguage].currency.symbol;
-	            }
-	        }
-
-	        return output;
-	    }
-
-	    function formatPercentage(n, format, roundingFunction) {
-	        var space = '',
-	            output,
-	            value = n._value * 100;
-
-	        // check for space before %
-	        if (format.indexOf(' %') > -1) {
-	            space = ' ';
-	            format = format.replace(' %', '');
-	        } else {
-	            format = format.replace('%', '');
-	        }
-
-	        output = formatNumber(value, format, roundingFunction);
-
-	        if (output.indexOf(')') > -1) {
-	            output = output.split('');
-	            output.splice(-1, 0, space + '%');
-	            output = output.join('');
-	        } else {
-	            output = output + space + '%';
-	        }
-
-	        return output;
-	    }
-
-	    function formatTime(n) {
-	        var hours = Math.floor(n._value / 60 / 60),
-	            minutes = Math.floor((n._value - hours * 60 * 60) / 60),
-	            seconds = Math.round(n._value - hours * 60 * 60 - minutes * 60);
-	        return hours + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
-	    }
-
-	    function unformatTime(string) {
-	        var timeArray = string.split(':'),
-	            seconds = 0;
-	        // turn hours and minutes into seconds and add them all up
-	        if (timeArray.length === 3) {
-	            // hours
-	            seconds = seconds + Number(timeArray[0]) * 60 * 60;
-	            // minutes
-	            seconds = seconds + Number(timeArray[1]) * 60;
-	            // seconds
-	            seconds = seconds + Number(timeArray[2]);
-	        } else if (timeArray.length === 2) {
-	            // minutes
-	            seconds = seconds + Number(timeArray[0]) * 60;
-	            // seconds
-	            seconds = seconds + Number(timeArray[1]);
-	        }
-	        return Number(seconds);
-	    }
-
-	    function formatNumber(value, format, roundingFunction) {
-	        var negP = false,
-	            signed = false,
-	            optDec = false,
-	            abbr = '',
-	            abbrK = false,
-	            // force abbreviation to thousands
-	        abbrM = false,
-	            // force abbreviation to millions
-	        abbrB = false,
-	            // force abbreviation to billions
-	        abbrT = false,
-	            // force abbreviation to trillions
-	        abbrForce = false,
-	            // force abbreviation
-	        bytes = '',
-	            ord = '',
-	            abs = Math.abs(value),
-	            suffixes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-	            min,
-	            max,
-	            power,
-	            w,
-	            precision,
-	            thousands,
-	            d = '',
-	            neg = false;
-
-	        // check if number is zero and a custom zero format has been set
-	        if (value === 0 && zeroFormat !== null) {
-	            return zeroFormat;
-	        } else {
-	            // see if we should use parentheses for negative number or if we should prefix with a sign
-	            // if both are present we default to parentheses
-	            if (format.indexOf('(') > -1) {
-	                negP = true;
-	                format = format.slice(1, -1);
-	            } else if (format.indexOf('+') > -1) {
-	                signed = true;
-	                format = format.replace(/\+/g, '');
-	            }
-
-	            // see if abbreviation is wanted
-	            if (format.indexOf('a') > -1) {
-	                // check if abbreviation is specified
-	                abbrK = format.indexOf('aK') >= 0;
-	                abbrM = format.indexOf('aM') >= 0;
-	                abbrB = format.indexOf('aB') >= 0;
-	                abbrT = format.indexOf('aT') >= 0;
-	                abbrForce = abbrK || abbrM || abbrB || abbrT;
-
-	                // check for space before abbreviation
-	                if (format.indexOf(' a') > -1) {
-	                    abbr = ' ';
-	                    format = format.replace(' a', '');
-	                } else {
-	                    format = format.replace('a', '');
-	                }
-
-	                if (abs >= Math.pow(10, 12) && !abbrForce || abbrT) {
-	                    // trillion
-	                    abbr = abbr + languages[currentLanguage].abbreviations.trillion;
-	                    value = value / Math.pow(10, 12);
-	                } else if (abs < Math.pow(10, 12) && abs >= Math.pow(10, 9) && !abbrForce || abbrB) {
-	                    // billion
-	                    abbr = abbr + languages[currentLanguage].abbreviations.billion;
-	                    value = value / Math.pow(10, 9);
-	                } else if (abs < Math.pow(10, 9) && abs >= Math.pow(10, 6) && !abbrForce || abbrM) {
-	                    // million
-	                    abbr = abbr + languages[currentLanguage].abbreviations.million;
-	                    value = value / Math.pow(10, 6);
-	                } else if (abs < Math.pow(10, 6) && abs >= Math.pow(10, 3) && !abbrForce || abbrK) {
-	                    // thousand
-	                    abbr = abbr + languages[currentLanguage].abbreviations.thousand;
-	                    value = value / Math.pow(10, 3);
-	                }
-	            }
-
-	            // see if we are formatting bytes
-	            if (format.indexOf('b') > -1) {
-	                // check for space before
-	                if (format.indexOf(' b') > -1) {
-	                    bytes = ' ';
-	                    format = format.replace(' b', '');
-	                } else {
-	                    format = format.replace('b', '');
-	                }
-
-	                for (power = 0; power <= suffixes.length; power++) {
-	                    min = Math.pow(1024, power);
-	                    max = Math.pow(1024, power + 1);
-
-	                    if (value >= min && value < max) {
-	                        bytes = bytes + suffixes[power];
-	                        if (min > 0) {
-	                            value = value / min;
-	                        }
-	                        break;
-	                    }
-	                }
-	            }
-
-	            // see if ordinal is wanted
-	            if (format.indexOf('o') > -1) {
-	                // check for space before
-	                if (format.indexOf(' o') > -1) {
-	                    ord = ' ';
-	                    format = format.replace(' o', '');
-	                } else {
-	                    format = format.replace('o', '');
-	                }
-
-	                ord = ord + languages[currentLanguage].ordinal(value);
-	            }
-
-	            if (format.indexOf('[.]') > -1) {
-	                optDec = true;
-	                format = format.replace('[.]', '.');
-	            }
-
-	            w = value.toString().split('.')[0];
-	            precision = format.split('.')[1];
-	            thousands = format.indexOf(',');
-
-	            if (precision) {
-	                if (precision.indexOf('[') > -1) {
-	                    precision = precision.replace(']', '');
-	                    precision = precision.split('[');
-	                    d = toFixed(value, precision[0].length + precision[1].length, roundingFunction, precision[1].length);
-	                } else {
-	                    d = toFixed(value, precision.length, roundingFunction);
-	                }
-
-	                w = d.split('.')[0];
-
-	                if (d.split('.')[1].length) {
-	                    d = languages[currentLanguage].delimiters.decimal + d.split('.')[1];
-	                } else {
-	                    d = '';
-	                }
-
-	                if (optDec && Number(d.slice(1)) === 0) {
-	                    d = '';
-	                }
-	            } else {
-	                w = toFixed(value, null, roundingFunction);
-	            }
-
-	            // format number
-	            if (w.indexOf('-') > -1) {
-	                w = w.slice(1);
-	                neg = true;
-	            }
-
-	            if (thousands > -1) {
-	                w = w.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1' + languages[currentLanguage].delimiters.thousands);
-	            }
-
-	            if (format.indexOf('.') === 0) {
-	                w = '';
-	            }
-
-	            return (negP && neg ? '(' : '') + (!negP && neg ? '-' : '') + (!neg && signed ? '+' : '') + w + d + (ord ? ord : '') + (abbr ? abbr : '') + (bytes ? bytes : '') + (negP && neg ? ')' : '');
-	        }
-	    }
-
-	    /************************************
-	        Top Level Functions
-	    ************************************/
-
-	    _numeral = function numeral(input) {
-	        if (_numeral.isNumeral(input)) {
-	            input = input.value();
-	        } else if (input === 0 || typeof input === 'undefined') {
-	            input = 0;
-	        } else if (!Number(input)) {
-	            input = _numeral.fn.unformat(input);
-	        }
-
-	        return new Numeral(Number(input));
-	    };
-
-	    // version number
-	    _numeral.version = VERSION;
-
-	    // compare numeral object
-	    _numeral.isNumeral = function (obj) {
-	        return obj instanceof Numeral;
-	    };
-
-	    // This function will load languages and then set the global language.  If
-	    // no arguments are passed in, it will simply return the current global
-	    // language key.
-	    _numeral.language = function (key, values) {
-	        if (!key) {
-	            return currentLanguage;
-	        }
-
-	        if (key && !values) {
-	            if (!languages[key]) {
-	                throw new Error('Unknown language : ' + key);
-	            }
-	            currentLanguage = key;
-	        }
-
-	        if (values || !languages[key]) {
-	            loadLanguage(key, values);
-	        }
-
-	        return _numeral;
-	    };
-
-	    // This function provides access to the loaded language data.  If
-	    // no arguments are passed in, it will simply return the current
-	    // global language object.
-	    _numeral.languageData = function (key) {
-	        if (!key) {
-	            return languages[currentLanguage];
-	        }
-
-	        if (!languages[key]) {
-	            throw new Error('Unknown language : ' + key);
-	        }
-
-	        return languages[key];
-	    };
-
-	    _numeral.language('en', {
-	        delimiters: {
-	            thousands: ',',
-	            decimal: '.'
-	        },
-	        abbreviations: {
-	            thousand: 'k',
-	            million: 'm',
-	            billion: 'b',
-	            trillion: 't'
-	        },
-	        ordinal: function ordinal(number) {
-	            var b = number % 10;
-	            return ~ ~(number % 100 / 10) === 1 ? 'th' : b === 1 ? 'st' : b === 2 ? 'nd' : b === 3 ? 'rd' : 'th';
-	        },
-	        currency: {
-	            symbol: '$'
-	        }
-	    });
-
-	    _numeral.zeroFormat = function (format) {
-	        zeroFormat = typeof format === 'string' ? format : null;
-	    };
-
-	    _numeral.defaultFormat = function (format) {
-	        defaultFormat = typeof format === 'string' ? format : '0.0';
-	    };
-
-	    /************************************
-	        Helpers
-	    ************************************/
-
-	    function loadLanguage(key, values) {
-	        languages[key] = values;
-	    }
-
-	    /************************************
-	        Floating-point helpers
-	    ************************************/
-
-	    // The floating-point helper functions and implementation
-	    // borrows heavily from sinful.js: http://guipn.github.io/sinful.js/
-
-	    /**
-	     * Array.prototype.reduce for browsers that don't support it
-	     * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce#Compatibility
-	     */
-	    if ('function' !== typeof Array.prototype.reduce) {
-	        Array.prototype.reduce = function (callback, opt_initialValue) {
-	            'use strict';
-
-	            if (null === this || 'undefined' === typeof this) {
-	                // At the moment all modern browsers, that support strict mode, have
-	                // native implementation of Array.prototype.reduce. For instance, IE8
-	                // does not support strict mode, so this check is actually useless.
-	                throw new TypeError('Array.prototype.reduce called on null or undefined');
-	            }
-
-	            if ('function' !== typeof callback) {
-	                throw new TypeError(callback + ' is not a function');
-	            }
-
-	            var index,
-	                value,
-	                length = this.length >>> 0,
-	                isValueSet = false;
-
-	            if (1 < arguments.length) {
-	                value = opt_initialValue;
-	                isValueSet = true;
-	            }
-
-	            for (index = 0; length > index; ++index) {
-	                if (this.hasOwnProperty(index)) {
-	                    if (isValueSet) {
-	                        value = callback(value, this[index], index, this);
-	                    } else {
-	                        value = this[index];
-	                        isValueSet = true;
-	                    }
-	                }
-	            }
-
-	            if (!isValueSet) {
-	                throw new TypeError('Reduce of empty array with no initial value');
-	            }
-
-	            return value;
-	        };
-	    }
-
-	    /**
-	     * Computes the multiplier necessary to make x >= 1,
-	     * effectively eliminating miscalculations caused by
-	     * finite precision.
-	     */
-	    function multiplier(x) {
-	        var parts = x.toString().split('.');
-	        if (parts.length < 2) {
-	            return 1;
-	        }
-	        return Math.pow(10, parts[1].length);
-	    }
-
-	    /**
-	     * Given a variable number of arguments, returns the maximum
-	     * multiplier that must be used to normalize an operation involving
-	     * all of them.
-	     */
-	    function correctionFactor() {
-	        var args = Array.prototype.slice.call(arguments);
-	        return args.reduce(function (prev, next) {
-	            var mp = multiplier(prev),
-	                mn = multiplier(next);
-	            return mp > mn ? mp : mn;
-	        }, -Infinity);
-	    }
-
-	    /************************************
-	        Numeral Prototype
-	    ************************************/
-
-	    _numeral.fn = Numeral.prototype = {
-
-	        clone: function clone() {
-	            return _numeral(this);
-	        },
-
-	        format: function format(inputString, roundingFunction) {
-	            return formatNumeral(this, inputString ? inputString : defaultFormat, roundingFunction !== undefined ? roundingFunction : Math.round);
-	        },
-
-	        unformat: function unformat(inputString) {
-	            if (Object.prototype.toString.call(inputString) === '[object Number]') {
-	                return inputString;
-	            }
-	            return unformatNumeral(this, inputString ? inputString : defaultFormat);
-	        },
-
-	        value: function value() {
-	            return this._value;
-	        },
-
-	        valueOf: function valueOf() {
-	            return this._value;
-	        },
-
-	        set: function set(value) {
-	            this._value = Number(value);
-	            return this;
-	        },
-
-	        add: function add(value) {
-	            var corrFactor = correctionFactor.call(null, this._value, value);
-	            function cback(accum, curr, currI, O) {
-	                return accum + corrFactor * curr;
-	            }
-	            this._value = [this._value, value].reduce(cback, 0) / corrFactor;
-	            return this;
-	        },
-
-	        subtract: function subtract(value) {
-	            var corrFactor = correctionFactor.call(null, this._value, value);
-	            function cback(accum, curr, currI, O) {
-	                return accum - corrFactor * curr;
-	            }
-	            this._value = [value].reduce(cback, this._value * corrFactor) / corrFactor;
-	            return this;
-	        },
-
-	        multiply: function multiply(value) {
-	            function cback(accum, curr, currI, O) {
-	                var corrFactor = correctionFactor(accum, curr);
-	                return accum * corrFactor * (curr * corrFactor) / (corrFactor * corrFactor);
-	            }
-	            this._value = [this._value, value].reduce(cback, 1);
-	            return this;
-	        },
-
-	        divide: function divide(value) {
-	            function cback(accum, curr, currI, O) {
-	                var corrFactor = correctionFactor(accum, curr);
-	                return accum * corrFactor / (curr * corrFactor);
-	            }
-	            this._value = [this._value, value].reduce(cback);
-	            return this;
-	        },
-
-	        difference: function difference(value) {
-	            return Math.abs(_numeral(this._value).subtract(value).value());
-	        }
-
-	    };
-
-	    /************************************
-	        Exposing Numeral
-	    ************************************/
-
-	    // CommonJS module is defined
-	    if (hasModule) {
-	        module.exports = _numeral;
-	    }
-
-	    /*global ender:false */
-	    if (typeof ender === 'undefined') {
-	        // here, `this` means `window` in the browser, or `global` on the server
-	        // add `numeral` as a global object via a string identifier,
-	        // for Closure Compiler 'advanced' mode
-	        this['numeral'] = _numeral;
-	    }
-
-	    /*global define:false */
-	    if (true) {
-	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
-	            return _numeral;
-	        }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	    }
-	}).call(undefined);
+	module.exports = __WEBPACK_EXTERNAL_MODULE_29__;
 
 /***/ },
-/* 31 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3424,21 +2365,29 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _frig = __webpack_require__(9);
+	var _frig = __webpack_require__(8);
 
-	var _input_error_list = __webpack_require__(10);
+	var _input_error_list = __webpack_require__(9);
 
 	var _input_error_list2 = _interopRequireDefault(_input_error_list);
 
-	var _saved = __webpack_require__(14);
+	var _saved = __webpack_require__(13);
 
 	var _saved2 = _interopRequireDefault(_saved);
 
-	var _label = __webpack_require__(21);
+	var _label = __webpack_require__(20);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _util = __webpack_require__(15);
+	var _util = __webpack_require__(14);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
+
+	var _default_prop_types = __webpack_require__(16);
+
+	var _default_prop_types2 = _interopRequireDefault(_default_prop_types);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3491,23 +2440,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return Select;
-	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Select', _class.defaultProps = Object.assign({}, __webpack_require__(16), {
+	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Select', _class.defaultProps = Object.assign({}, _default_props2.default, {
 	  options: {}
-	}), _class.propTypes = {
-	  inputHtml: _react2.default.PropTypes.object,
-	  options: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.array, _react2.default.PropTypes.object, _react2.default.PropTypes.string]),
-	  valueLink: _react2.default.PropTypes.shape({
-	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number, _react2.default.PropTypes.bool]),
-	    requestChange: _react2.default.PropTypes.func
-	  }).isRequired,
-
-	  saved: _react2.default.PropTypes.bool,
-	  errors: _react2.default.PropTypes.array
-	}, _temp);
+	}), _class.propTypes = Object.assign({}, _default_prop_types2.default, {
+	  options: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.array, _react2.default.PropTypes.object, _react2.default.PropTypes.string])
+	}), _temp);
 	exports.default = Select;
 
 /***/ },
-/* 32 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3525,11 +2466,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _util = __webpack_require__(15);
+	var _util = __webpack_require__(14);
 
 	var _classnames = __webpack_require__(7);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3604,7 +2549,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return Submit;
-	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Submit', _class.defaultProps = Object.assign({}, __webpack_require__(16), {
+	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Submit', _class.defaultProps = Object.assign({}, _default_props2.default, {
 	  bsStyle: 'default',
 	  bsSize: undefined,
 	  block: false
@@ -3614,7 +2559,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  bsSize: _react2.default.PropTypes.string,
 	  bsStyle: _react2.default.PropTypes.string,
 	  className: _react2.default.PropTypes.string,
-	  title: _react2.default.PropTypes.string,
+	  title: _react2.default.PropTypes.string.isRequired,
 	  block: _react2.default.PropTypes.bool
 	}, _class.contextTypes = {
 	  frigForm: _react2.default.PropTypes.shape({
@@ -3624,7 +2569,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Submit;
 
 /***/ },
-/* 33 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3646,21 +2591,29 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _frig = __webpack_require__(9);
+	var _frig = __webpack_require__(8);
 
-	var _input_error_list = __webpack_require__(10);
+	var _input_error_list = __webpack_require__(9);
 
 	var _input_error_list2 = _interopRequireDefault(_input_error_list);
 
-	var _saved = __webpack_require__(14);
+	var _saved = __webpack_require__(13);
 
 	var _saved2 = _interopRequireDefault(_saved);
 
-	var _label = __webpack_require__(21);
+	var _label = __webpack_require__(20);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _util = __webpack_require__(15);
+	var _util = __webpack_require__(14);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
+
+	var _default_prop_types = __webpack_require__(16);
+
+	var _default_prop_types2 = _interopRequireDefault(_default_prop_types);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3782,7 +2735,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return Switch;
-	}(_react2.default.Component), _class2.displayName = 'FriggingBootstrap.Switch', _class2.defaultProps = Object.assign(__webpack_require__(16), {
+	}(_react2.default.Component), _class2.displayName = 'FriggingBootstrap.Switch', _class2.defaultProps = Object.assign({}, _default_props2.default, {
 	  onColor: 'primary',
 	  onText: 'ON',
 	  offColor: 'default',
@@ -3790,7 +2743,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  bsSize: undefined,
 	  disabled: false,
 	  handleWidth: undefined
-	}), _class2.propTypes = {
+	}), _class2.propTypes = Object.assign({}, _default_prop_types2.default, {
 	  align: _react2.default.PropTypes.string,
 	  onColor: _react2.default.PropTypes.string,
 	  onText: _react2.default.PropTypes.string,
@@ -3798,20 +2751,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  offText: _react2.default.PropTypes.string,
 	  bsSize: _react2.default.PropTypes.string,
 	  disabled: _react2.default.PropTypes.bool,
-	  handleWidth: _react2.default.PropTypes.number,
-
-	  valueLink: _react2.default.PropTypes.shape({
-	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number, _react2.default.PropTypes.bool]),
-	    requestChange: _react2.default.PropTypes.func
-	  }).isRequired,
-
-	  saved: _react2.default.PropTypes.bool,
-	  errors: _react2.default.PropTypes.array
-	}, _temp)) || _class);
+	  handleWidth: _react2.default.PropTypes.number
+	}), _temp)) || _class);
 	exports.default = Switch;
 
 /***/ },
-/* 34 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3833,19 +2778,27 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _input_error_list = __webpack_require__(10);
+	var _input_error_list = __webpack_require__(9);
 
 	var _input_error_list2 = _interopRequireDefault(_input_error_list);
 
-	var _saved = __webpack_require__(14);
+	var _saved = __webpack_require__(13);
 
 	var _saved2 = _interopRequireDefault(_saved);
 
-	var _label = __webpack_require__(21);
+	var _label = __webpack_require__(20);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _util = __webpack_require__(15);
+	var _util = __webpack_require__(14);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
+
+	var _default_prop_types = __webpack_require__(16);
+
+	var _default_prop_types2 = _interopRequireDefault(_default_prop_types);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3899,22 +2852,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return Text;
-	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Text', _class.defaultProps = Object.assign(__webpack_require__(16)), _class.propTypes = {
-	  inputHtml: _react2.default.PropTypes.object,
-	  valueLink: _react2.default.PropTypes.shape({
-	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number, _react2.default.PropTypes.bool]),
-	    requestChange: _react2.default.PropTypes.func
-	  }).isRequired,
-
-	  rows: _react2.default.PropTypes.number,
-	  className: _react2.default.PropTypes.string,
-	  saved: _react2.default.PropTypes.bool,
-	  errors: _react2.default.PropTypes.array
-	}, _temp);
+	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Text', _class.defaultProps = _default_props2.default, _class.propTypes = Object.assign({}, _default_prop_types2.default, {
+	  rows: _react2.default.PropTypes.number
+	}), _temp);
 	exports.default = Text;
 
 /***/ },
-/* 35 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3923,6 +2867,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	exports.default = undefined;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -3936,25 +2882,37 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _frig = __webpack_require__(9);
+	var _frig = __webpack_require__(8);
+
+	var _time_formatter = __webpack_require__(35);
+
+	var _time_formatter2 = _interopRequireDefault(_time_formatter);
 
 	var _timepicker_popup = __webpack_require__(36);
 
 	var _timepicker_popup2 = _interopRequireDefault(_timepicker_popup);
 
-	var _input_error_list = __webpack_require__(10);
+	var _input_error_list = __webpack_require__(9);
 
 	var _input_error_list2 = _interopRequireDefault(_input_error_list);
 
-	var _saved = __webpack_require__(14);
+	var _saved = __webpack_require__(13);
 
 	var _saved2 = _interopRequireDefault(_saved);
 
-	var _label = __webpack_require__(21);
+	var _label = __webpack_require__(20);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _util = __webpack_require__(15);
+	var _util = __webpack_require__(14);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
+
+	var _default_prop_types = __webpack_require__(16);
+
+	var _default_prop_types2 = _interopRequireDefault(_default_prop_types);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3970,7 +2928,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function TimePicker() {
 	    _classCallCheck(this, TimePicker);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(TimePicker).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TimePicker).call(this));
+
+	    _this._onTimeChange = _this._onTimeChange.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(TimePicker, [{
@@ -3978,9 +2939,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function _inputCx() {
 	      return (0, _classnames2.default)(this.props.inputHtml.className, 'frigb-timepicker-input', 'form-control');
 	    }
-
-	    // TODO: standarized proptyles accross componets
-
 	  }, {
 	    key: '_input',
 	    value: function _input() {
@@ -3991,7 +2949,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        className: this._inputCx(),
 	        onFocus: function onFocus() {
 	          if (_this2.props.valueLink.value == null) {
-	            _this2.props.valueLink.requestChange('12:00pm');
+	            _this2.props.valueLink.requestChange('12:00 AM');
 	            return true;
 	          }
 
@@ -4001,11 +2959,36 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return _react2.default.createElement('input', inputProps);
 	    }
 	  }, {
+	    key: '_onTimeChange',
+	    value: function _onTimeChange(newTime) {
+	      var time = new _time_formatter2.default(newTime);
+	      this.props.valueLink.requestChange(time.toString());
+	    }
+	  }, {
 	    key: '_timePopup',
 	    value: function _timePopup() {
 	      if (this.props.focused === false) return false;
+	      var value = this.props.valueLink.value;
+	      var props = {};
 
-	      return _react2.default.createElement(_timepicker_popup2.default, { valueLink: this.props.valueLink });
+	      try {
+	        var time = new _time_formatter2.default(value);
+	        props = {
+	          hours: time.hours,
+	          minutes: time.minutes,
+	          amPm: time.amPm
+	        };
+	      } catch (ex) {
+	        props = {
+	          hours: '12',
+	          minutes: '00',
+	          amPm: 'AM'
+	        };
+	      }
+
+	      return _react2.default.createElement(_timepicker_popup2.default, _extends({}, props, {
+	        onTimeChange: this._onTimeChange
+	      }));
 	    }
 	  }, {
 	    key: 'render',
@@ -4031,17 +3014,103 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return TimePicker;
-	}(_react2.default.Component), _class2.displayName = 'FriggingBootstrap.TimePicker', _class2.defaultProps = Object.assign(__webpack_require__(16)), _class2.propTypes = {
-	  inputHtml: _react2.default.PropTypes.object,
-	  valueLink: _react2.default.PropTypes.shape({
-	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number, _react2.default.PropTypes.bool]),
-	    requestChange: _react2.default.PropTypes.func
-	  }).isRequired,
-	  saved: _react2.default.PropTypes.bool,
-	  errors: _react2.default.PropTypes.array,
+	}(_react2.default.Component), _class2.displayName = 'FriggingBootstrap.TimePicker', _class2.defaultProps = _default_props2.default, _class2.propTypes = Object.assign({}, _default_prop_types2.default, {
 	  focused: _react2.default.PropTypes.bool.isRequired
-	}, _temp)) || _class);
+	}), _temp)) || _class);
 	exports.default = TimePicker;
+
+/***/ },
+/* 35 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _class, _temp;
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var TimeFormatter = (_temp = _class = function () {
+	  function TimeFormatter(timeString) {
+	    _classCallCheck(this, TimeFormatter);
+
+	    this.timeString = timeString.trim();
+	    this.matches = this.timeString.match(TimeFormatter.regex);
+
+	    if (this.matches == null) {
+	      throw new Error('invalid time ' + timeString + ' supplied to TimeFormatter');
+	    }
+
+	    if (this._hours() > 24) throw new RangeError('hour must not be >24');
+	    if (this._minutes() > 59) throw new RangeError('minute must not be >59');
+	  }
+
+	  _createClass(TimeFormatter, [{
+	    key: 'toString',
+	    value: function toString() {
+	      return this.timeString;
+	    }
+	  }, {
+	    key: '_hours',
+	    value: function _hours() {
+	      return this.matches[1];
+	    }
+	  }, {
+	    key: '_minutes',
+	    value: function _minutes() {
+	      return this.matches[2];
+	    }
+	  }, {
+	    key: '_amPm',
+	    value: function _amPm() {
+	      return this.matches[3];
+	    }
+	  }, {
+	    key: 'hours',
+	    get: function get() {
+	      var nextHour = this._hours() % 12;
+	      if (nextHour === 0) nextHour = 12;
+
+	      return nextHour.toString();
+	    }
+	  }, {
+	    key: 'minutes',
+	    get: function get() {
+	      return this._minutes();
+	    }
+	  }, {
+	    key: 'amPm',
+	    get: function get() {
+	      var hours = parseInt(this._hours(), 10);
+	      var amPmProvided = this._amPm() != null;
+
+	      // special case: handle e.g. 00:00 => 12:00 AM
+	      if (hours === 0) return 'AM';
+
+	      // special case: handle 12:00 without AM/PM as 12:00 PM
+	      if (hours === 12 && !amPmProvided) return 'PM';
+
+	      // handle 24 hour time (e.g. 14:50) as PM
+	      if (hours > 12) return 'PM';
+
+	      // if AM/PM provided, and none of the special cases above,
+	      // use provided AM/PM
+	      if (amPmProvided) return this._amPm().toUpperCase();
+
+	      // if no AM/PM provided, and none of the special cases above,
+	      // treat as 24 hour time (AM)
+	      return 'AM';
+	    }
+	  }]);
+
+	  return TimeFormatter;
+	}(), _class.regex = /^(\d{1,2}):(\d{2}) ?([APap][Mm])?$/, _temp);
+	exports.default = TimeFormatter;
 
 /***/ },
 /* 36 */
@@ -4054,7 +3123,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = undefined;
 
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -4064,7 +3133,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _frig = __webpack_require__(9);
+	var _input = __webpack_require__(27);
+
+	var _input2 = _interopRequireDefault(_input);
+
+	var _switch = __webpack_require__(32);
+
+	var _switch2 = _interopRequireDefault(_switch);
+
+	var _default_props = __webpack_require__(15);
+
+	var _default_props2 = _interopRequireDefault(_default_props);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4080,211 +3159,154 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function TimePickerPopup() {
 	    _classCallCheck(this, TimePickerPopup);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(TimePickerPopup).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TimePickerPopup).call(this));
+
+	    _this.onMinuteChange = _this.onMinuteChange.bind(_this);
+	    _this.onHourChange = _this.onHourChange.bind(_this);
+	    _this.onAmPmChange = _this.onAmPmChange.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(TimePickerPopup, [{
-	    key: '_getHour',
-
-
-	    // Returns the number of hours from 12 to 1 to 11
-	    value: function _getHour() {
-	      var minutesSinceMidnight = arguments.length <= 0 || arguments[0] === undefined ? this._minutesSinceMidnight() : arguments[0];
-
-	      var hour = this._hoursSinceMeridiem(minutesSinceMidnight);
-	      if (hour === 0) hour = 12;
-
-	      return hour;
-	    }
-
-	    // Returns the minutes portion of the valueLink's time value from 0 to 59
-
-	  }, {
-	    key: '_getMinutes',
-	    value: function _getMinutes() {
-	      var minutesSinceMidnight = arguments.length <= 0 || arguments[0] === undefined ? this._minutesSinceMidnight() : arguments[0];
-
-	      if (minutesSinceMidnight < 0) return minutesSinceMidnight * -1;
-
-	      return minutesSinceMidnight % 60;
+	    key: 'onHourChange',
+	    value: function onHourChange(newHour) {
+	      var hours = newHour;
+	      var minutes = this._getMinutesFromProps();
+	      var amPm = this._getAmPmFromProps();
+	      this.onPopupTimeChange(hours, minutes, amPm);
 	    }
 	  }, {
-	    key: '_isMeridiemAM',
-	    value: function _isMeridiemAM() {
-	      var _getValuesFromTimepic = this._getValuesFromTimepicker();
-
-	      var _getValuesFromTimepic2 = _slicedToArray(_getValuesFromTimepic, 3);
-
-	      var isAM = _getValuesFromTimepic2[2];
-
-
-	      return isAM;
+	    key: 'onMinuteChange',
+	    value: function onMinuteChange(newMinute) {
+	      var hours = this._getHoursFromProps();
+	      var minutes = newMinute;
+	      var amPm = this._getAmPmFromProps();
+	      this.onPopupTimeChange(hours, minutes, amPm);
 	    }
 	  }, {
-	    key: '_onHourChange',
-	    value: function _onHourChange(hour) {
-	      var val = this._calculateHourChange(hour);
+	    key: 'onAmPmChange',
+	    value: function onAmPmChange(isAm) {
+	      var hours = this._getHoursFromProps();
+	      var minutes = this._getMinutesFromProps();
+	      var amPm = isAm ? 'AM' : 'PM';
 
-	      this._setMinutesSinceMidnight(val);
+	      this.onPopupTimeChange(hours, minutes, amPm);
+	    }
+
+	    // Sends a new time string to the <TimePicker>.
+	    //
+	    // The value we send must be a valid time parseable by TimeFormatter.
+	    //
+	    // Since we use <input type="number" step="..." />, this is
+	    // the final chance to normalize values like "3:-15" and "3:75".
+
+	  }, {
+	    key: 'onPopupTimeChange',
+	    value: function onPopupTimeChange(hours, minutes, amPm) {
+	      var normalizedHours = this.normalizeHours(hours);
+	      var normalizedMinutes = this.normalizeMinutes(minutes);
+
+	      var newTimeString = normalizedHours + ':' + normalizedMinutes + ' ' + amPm;
+	      this.props.onTimeChange(newTimeString);
 	    }
 	  }, {
-	    key: '_onMinutesChange',
-	    value: function _onMinutesChange(minutes) {
-	      var val = this._calculateMinutesChange(minutes);
-
-	      this._setMinutesSinceMidnight(val);
+	    key: 'normalizeHours',
+	    value: function normalizeHours(strHours) {
+	      var hours = parseInt(strHours, 10);
+	      if (hours <= 0) return 12;
+	      if (hours >= 13) return 1;
+	      return hours;
 	    }
 	  }, {
-	    key: '_onMeridiemChange',
-	    value: function _onMeridiemChange(isAM) {
-	      var _getValuesFromTimepic3 = this._getValuesFromTimepicker();
+	    key: 'normalizeMinutes',
+	    value: function normalizeMinutes(strMinutes) {
+	      var minutes = parseInt(strMinutes, 10);
 
-	      var _getValuesFromTimepic4 = _slicedToArray(_getValuesFromTimepic3, 1);
+	      // if minutes=75 (e.g. <input type="number" step="15">),
+	      // "roll over" to 15
+	      minutes = minutes % 60;
 
-	      var hours = _getValuesFromTimepic4[0];
+	      // if minutes=-15 (e.g. <input type="number" step="15">),
+	      // "roll over" to 45
+	      if (minutes < 0) {
+	        minutes = 60 - Math.abs(minutes);
+	      }
 
-	      var val = this._calculateHourChange(hours);
+	      // left-pad single digit minute numbers
+	      if (minutes >= 0 && minutes <= 9) {
+	        return '0' + minutes;
+	      }
 
-	      this._setMinutesSinceMidnight(val, isAM);
+	      return minutes.toString();
 	    }
 	  }, {
-	    key: '_calculateHourChange',
-	    value: function _calculateHourChange(hour) {
-	      var changeHour = parseInt(hour, 10) || 0;
-	      changeHour = changeHour % 12;
-
-	      return this._getMinutes() + changeHour * 60;
+	    key: '_getMinutesFromProps',
+	    value: function _getMinutesFromProps() {
+	      return this.refs.minutes.props.valueLink.value;
 	    }
 	  }, {
-	    key: '_calculateMinutesChange',
-	    value: function _calculateMinutesChange(minutes) {
-	      var changeMinutes = parseInt(minutes, 10) || 0;
-
-	      return changeMinutes + this._hoursSinceMeridiem() * 60;
+	    key: '_getHoursFromProps',
+	    value: function _getHoursFromProps() {
+	      return this.refs.hours.props.valueLink.value;
 	    }
 	  }, {
-	    key: '_hoursSinceMeridiem',
-	    value: function _hoursSinceMeridiem() {
-	      var minutesSinceMidnight = arguments.length <= 0 || arguments[0] === undefined ? this._minutesSinceMidnight() : arguments[0];
-
-	      return Math.floor(minutesSinceMidnight / 60);
-	    }
-	  }, {
-	    key: '_getValuesFromTimepicker',
-	    value: function _getValuesFromTimepicker() {
-	      var val = this.props.valueLink.value || '';
-
-	      // Parsing the input string
-
-	      var _val$split$map = val.split(':').map(function (s) {
-	        return parseInt(s, 10);
-	      });
-
-	      var _val$split$map2 = _slicedToArray(_val$split$map, 2);
-
-	      var hours = _val$split$map2[0];
-	      var minutes = _val$split$map2[1];
-
-
-	      var isAM = /am$/i.test(val);
-
-	      return [hours, minutes, isAM];
-	    }
-	  }, {
-	    key: '_minutesSinceMidnight',
-	    value: function _minutesSinceMidnight() {
-	      var _getValuesFromTimepic5 = this._getValuesFromTimepicker();
-
-	      var _getValuesFromTimepic6 = _slicedToArray(_getValuesFromTimepic5, 2);
-
-	      var hours = _getValuesFromTimepic6[0];
-	      var minutes = _getValuesFromTimepic6[1];
-
-	      // Limiting the hours to a range of 0 to 11 and the minutes to 0 to 59
-
-	      hours = (hours || 0) % 12;
-	      minutes = (minutes || 0) % 60;
-
-	      // Calculating the number of minutes since midnight
-	      return hours * 60 + minutes;
-	    }
-	  }, {
-	    key: '_setMinutesSinceMidnight',
-	    value: function _setMinutesSinceMidnight(m) {
-	      var isAM = arguments.length <= 1 || arguments[1] === undefined ? this._isMeridiemAM() : arguments[1];
-
-	      var minutesSinceMidnight = m % (12 * 60);
-	      var currentMeridiem = isAM;
-
-	      var hours = this._getHour(minutesSinceMidnight);
-	      var minutes = this._getMinutes(minutesSinceMidnight);
-
-	      var _getValuesFromTimepic7 = this._getValuesFromTimepicker();
-
-	      var _getValuesFromTimepic8 = _slicedToArray(_getValuesFromTimepic7, 3);
-
-	      var selectedMeridiem = _getValuesFromTimepic8[2];
-
-
-	      if (hours < 0) hours = 11;
-	      if (hours === 12 && minutes === 0) currentMeridiem = !selectedMeridiem;
-	      minutes = minutes < 10 ? '0' + minutes : minutes;
-
-	      var meridiem = currentMeridiem ? 'AM' : 'PM';
-
-	      var s = hours + ':' + minutes + ' ' + meridiem;
-	      this.props.valueLink.requestChange(s);
-	    }
-	  }, {
-	    key: '_inputPropOverrides',
-	    value: function _inputPropOverrides() {
-	      return {
-	        type: 'string',
-	        required: false,
-	        xs: 4
-	      };
+	    key: '_getAmPmFromProps',
+	    value: function _getAmPmFromProps() {
+	      return this.refs.amPm.props.valueLink.value ? 'AM' : 'PM';
 	    }
 	  }, {
 	    key: '_hourProps',
 	    value: function _hourProps() {
-	      return Object.assign({}, this.props, this._inputPropOverrides(), {
+	      return {
+	        valueLink: {
+	          value: this.props.hours,
+	          requestChange: this.onHourChange
+	        },
 	        name: 'hours',
-	        value: this._getHour(),
-	        onChange: this._onHourChange.bind(this),
+	        label: 'Hours',
+	        required: false,
+	        xs: 4,
 	        inputHtml: {
 	          type: 'number',
 	          step: 1
 	        }
-	      });
+	      };
 	    }
 	  }, {
 	    key: '_minuteProps',
 	    value: function _minuteProps() {
-	      return Object.assign({}, this.props, this._inputPropOverrides(), {
+	      return {
+	        valueLink: {
+	          value: this.props.minutes,
+	          requestChange: this.onMinuteChange
+	        },
 	        name: 'minutes',
-	        value: this._getMinutes(),
-	        onChange: this._onMinutesChange.bind(this),
+	        label: 'Minutes',
+	        required: false,
+	        xs: 4,
 	        inputHtml: {
 	          type: 'number',
 	          step: 15
 	        }
-	      });
+	      };
 	    }
 	  }, {
 	    key: '_meridiemProps',
 	    value: function _meridiemProps() {
-	      return Object.assign({}, this.props, {
-	        type: 'switch',
+	      return {
+	        valueLink: {
+	          value: this.props.amPm === 'AM',
+	          requestChange: this.onAmPmChange
+	        },
+	        label: 'AM/PM',
 	        required: false,
 	        xs: 4,
 	        name: 'meridiem',
 	        onText: 'AM',
 	        onColor: 'warning',
 	        offText: 'PM',
-	        offColor: 'primary',
-	        value: this._isMeridiemAM(),
-	        onChange: this._onMeridiemChange.bind(this)
-	      });
+	        offColor: 'primary'
+	      };
 	    }
 	  }, {
 	    key: 'render',
@@ -4296,20 +3318,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'row' },
-	          _react2.default.createElement(_frig.UnboundInput, this._hourProps()),
-	          _react2.default.createElement(_frig.UnboundInput, this._minuteProps()),
-	          _react2.default.createElement(_frig.UnboundInput, this._meridiemProps())
+	          _react2.default.createElement(_input2.default, _extends({ ref: 'hours' }, this._hourProps())),
+	          _react2.default.createElement(_input2.default, _extends({ ref: 'minutes' }, this._minuteProps())),
+	          _react2.default.createElement(_switch2.default, _extends({ ref: 'amPm' }, this._meridiemProps()))
 	        )
 	      );
 	    }
 	  }]);
 
 	  return TimePickerPopup;
-	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.TimePickerPopup', _class.defaultProps = Object.assign(__webpack_require__(16)), _class.propTypes = {
-	  valueLink: _react2.default.PropTypes.shape({
-	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number, _react2.default.PropTypes.bool]),
-	    requestChange: _react2.default.PropTypes.func
-	  }).isRequired
+	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.TimePickerPopup', _class.defaultProps = _default_props2.default, _class.propTypes = {
+	  onTimeChange: _react2.default.PropTypes.func.isRequired,
+	  hours: _react2.default.PropTypes.string.isRequired,
+	  minutes: _react2.default.PropTypes.string.isRequired,
+	  amPm: _react2.default.PropTypes.string.isRequired
 	}, _temp);
 	exports.default = TimePickerPopup;
 
