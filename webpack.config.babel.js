@@ -30,48 +30,20 @@ module.exports = {
     library: 'FriggingBootstrap',
   },
   externals: {
-    react: {
-      root: 'React',
-      this: 'React',
-      var: 'React',
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'react',
-    },
-    'react-dom': {
-      root: 'ReactDOM',
-      this: 'ReactDOM',
-      var: 'ReactDOM',
-      commonjs: 'react-dom',
-      commonjs2: 'react-dom',
-      amd: 'react-dom',
-    },
-    frig: {
-      root: 'Frig',
-      this: 'Frig',
-      var: 'Frig',
-      commonjs: 'frig',
-      commonjs2: 'frig',
-      amd: 'frig',
-    },
-    'react-addons-css-transition-group': {
-      root: 'React.addons.CSSTransitionGroup',
-      this: 'React.addons.CSSTransitionGroup',
-      var: 'React.addons.CSSTransitionGroup',
-      commonjs: 'react-addons-css-transition-group',
-      commonjs2: 'react-addons-css-transition-group',
-      amd: 'react-addons-css-transition-group',
-    },
+    react: true,
+    'react-dom': true,
+    frig: true,
+    'react-addons-css-transition-group': true,
+    colr: true,
+    numeral: true,
+    classnames: true,
   },
   resolve: {
     root: [path.join(__dirname, 'src', 'javascripts'), path.join(__dirname, 'src', 'stylesheets')],
   },
   module: {
     loaders: [
-      isProduction ? {
-        test: /\.styl$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader'),
-      } : {
+      {
         test: /\.styl$/,
         loader: 'style-loader!css-loader!stylus-loader',
       }, {
