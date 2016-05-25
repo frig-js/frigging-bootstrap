@@ -22,20 +22,23 @@ export default class TimePickerPopup extends React.Component {
     this.onAmPmChange = this.onAmPmChange.bind(this)
   }
 
-  onHourChange(newHour) {
+  onHourChange(e) {
+    const newHour = e.target.value
     const hours = newHour
     const minutes = this._getMinutesFromProps()
     const amPm = this._getAmPmFromProps()
     this.onPopupTimeChange(hours, minutes, amPm)
   }
 
-  onMinuteChange(newMinute) {
+  onMinuteChange(e) {
+    const newMinute = e.target.value
     const hours = this._getHoursFromProps()
     const minutes = newMinute
     const amPm = this._getAmPmFromProps()
     this.onPopupTimeChange(hours, minutes, amPm)
   }
 
+  // note: Switch does not send a SyntheticEvent, it sends the boolean value
   onAmPmChange(isAm) {
     const hours = this._getHoursFromProps()
     const minutes = this._getMinutesFromProps()
