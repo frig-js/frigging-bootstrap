@@ -29,7 +29,6 @@ export default class Input extends React.Component {
   })
 
   _inputHtml() {
-    console.log("Input#_inputHtml: this.props.inputHtml => ", this.props.inputHtml)
     return Object.assign({}, this.props.inputHtml, {
       className: cx(this.props.className, 'form-control'),
       value: this.props.value,

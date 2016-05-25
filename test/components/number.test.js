@@ -59,9 +59,6 @@ describe('<NumberComponent />', () => {
 
     wrapper.setProps({ onChange, value })
 
-    console.log("************************************** number.test")
-    console.log("value=", value)
-
     input.get(0).value = value
     input.simulate('change')
 
