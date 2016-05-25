@@ -10,10 +10,8 @@ import Checkbox from '../../src/js/components/checkbox'
 import * as common from './_common.test'
 
 const props = {
-  valueLink: {
-    value: true,
-    requestChange: () => {},
-  },
+  value: true,
+  onChange: () => {},
   inputHtml: { type: 'checkbox' },
 }
 
