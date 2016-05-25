@@ -5,7 +5,7 @@ const propTypes = {
     React.PropTypes.string,
     React.PropTypes.number,
     React.PropTypes.bool,
-  ]).isRequired,
+  ]),
   onChange: React.PropTypes.func.isRequired,
   inputHtml: React.PropTypes.object,
   className: React.PropTypes.string,
