@@ -37,7 +37,7 @@ describe('<TimePicker />', () => {
     it('should set an initial time on first focus', () => {
       const onChange = td.function()
       const newProps = cloner.deep.copy(defaultProps)
-      newProps.value = null
+      newProps.value = ''
       newProps.onChange = onChange
 
       const wrapper = getWrapper(newProps)

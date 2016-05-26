@@ -43,7 +43,7 @@ export default class TimePicker extends React.Component {
       onChange: this.props.onChange,
       className: this._inputCx(),
       onFocus: () => {
-        if (this.props.value == null) {
+        if (this.props.value == null || this.props.value === '') {
           this.props.onChange('12:00 AM')
           return true
         }
