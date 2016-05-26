@@ -114,8 +114,8 @@ describe('<TimePickerPopup />', () => {
 
       it('when minute is -15 return 45', () => {
         const props = Object.assign({}, defaultProps, {
-          hours: 7,
-          minutes: 20,
+          hours: '7',
+          minutes: '20',
           amPm: 'AM',
         })
         const wrapper = getWrapper(props)  // 7:20 AM
