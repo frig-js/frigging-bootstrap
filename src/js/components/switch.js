@@ -95,7 +95,7 @@ export default class Switch extends React.Component {
         ref="switchContainer"
         onClick={this._onClick}
         style={{
-          marginLeft: this._isChecked() ? '0' : `-${checkedOffset}px`,
+          marginLeft: this._isChecked() ? '0px' : `-${checkedOffset}px`,
           width: handleWidth ? handleWidth * 3 : undefined,
         }}
       >

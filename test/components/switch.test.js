@@ -43,7 +43,7 @@ describe('<Switch />', () => {
       )
       const switchComponentStyle = switchComponent.prop('style')
 
-      expect(switchComponentStyle).to.have.property('marginLeft', '0')
+      expect(switchComponentStyle).to.have.property('marginLeft', '0px')
       expect(switchComponentStyle).to.have.property('width', undefined)
     })
   })
