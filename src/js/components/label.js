@@ -12,6 +12,7 @@ export default class Label extends React.Component {
     label: React.PropTypes.oneOfType([
       React.PropTypes.string,
       React.PropTypes.element,
+      React.PropTypes.bool,    // can set label={false} to not show a label
     ]),
   }
 
