@@ -550,7 +550,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return Object.assign({}, this.props.inputHtml, {
 	        type: 'checkbox',
 	        value: this.props.key,
-	        checkedLink: this.props.valueLink
+	        checked: this.props.value,
+	        onChange: this.props.onChange
 	      });
 	    }
 	  }, {
@@ -1020,10 +1021,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var propTypes = {
-	  valueLink: _react2.default.PropTypes.shape({
-	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number, _react2.default.PropTypes.bool]),
-	    requestChange: _react2.default.PropTypes.func
-	  }).isRequired,
+	  value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number, _react2.default.PropTypes.bool]),
+	  onChange: _react2.default.PropTypes.func.isRequired,
 	  inputHtml: _react2.default.PropTypes.object,
 	  className: _react2.default.PropTypes.string,
 	  saved: _react2.default.PropTypes.bool,
@@ -1142,7 +1141,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: '_updateColrCache',
 	    value: function _updateColrCache(nextProps) {
-	      var nextColr = this._normalizeColr(nextProps.valueLink.value);
+	      var nextColr = this._normalizeColr(nextProps.value);
 	      if (this.state.colr.toHex() === nextColr.toHex()) return;
 	      this.setState({ colr: nextColr });
 	    }
@@ -1161,7 +1160,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // Update state and then props so that the cache invalidation for incomming
 	      // props (_updateColrCache) always sees the latest state.
 	      var updateProps = function updateProps() {
-	        return _this2.props.valueLink.requestChange(colr.toHex());
+	        return _this2.props.onChange(colr.toHex());
 	      };
 	      this.setState({ colr: colr }, updateProps);
 	    }
@@ -1210,7 +1209,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'render',
 	    value: function render() {
 	      var inputProps = Object.assign({}, this.props.inputHtml, {
-	        valueLink: this.props.valueLink,
+	        value: this.props.value,
+	        onChange: this.props.onChange,
 	        ref: 'frigColorInput',
 	        className: (0, _classnames2.default)(this.props.inputHtml.className, 'frigb-color-input', 'form-control')
 	      });
@@ -1301,7 +1301,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'isEmpty',
 	    value: function isEmpty() {
 	      return !this.props.label;
-	    }
+	    } // can set label={false} to not show a label
+
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -1332,7 +1333,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  labelWidth: _react2.default.PropTypes.object.isRequired,
 	  layout: _react2.default.PropTypes.string.isRequired,
 	  block: _react2.default.PropTypes.bool,
-	  label: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.element])
+	  label: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.element, _react2.default.PropTypes.bool])
 	}, _class.defaultProps = {
 	  block: false,
 	  label: ''
@@ -1852,9 +1853,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        type: 'file',
 	        accept: 'image/png,image/gif,image/jpeg',
 	        ref: 'frigFile',
-	        valueLink: {
-	          requestChange: this._loadFile.bind(this)
-	        }
+	        onChange: this._loadFile.bind(this)
 	      });
 	      return _react2.default.createElement('input', inputProps);
 	    }
@@ -1869,17 +1868,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: '_onFileLoad',
 	    value: function _onFileLoad() {
-	      this.props.valueLink.requestChange(this.fReader.result.slice(0));
+	      this.props.requestChange(this.fReader.result.slice(0));
 	    }
 	  }, {
 	    key: '_image',
 	    value: function _image() {
-	      if (this.props.valueLink.value == null) return '';
+	      if (this.props.value == null) return '';
 	      return _react2.default.createElement('img', {
 	        className: 'thumbnail',
 	        height: '125',
 	        width: '125',
-	        src: this.props.valueLink.value,
+	        src: this.props.value,
 	        role: 'presentation'
 	      });
 	    }
@@ -2088,7 +2087,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function _inputHtml() {
 	      return Object.assign({}, this.props.inputHtml, {
 	        className: (0, _classnames2.default)(this.props.className, 'form-control'),
-	        valueLink: this.props.valueLink
+	        value: this.props.value,
+	        onChange: this.props.onChange
 	      });
 	    }
 	  }, {
@@ -2120,6 +2120,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: '_inputGroup',
 	    value: function _inputGroup() {
+	      var labelProps = {
+	        label: this.props.label,
+	        labelWidth: this.props.labelWidth,
+	        layout: this.props.layout
+	      };
 	      var inputLabel = _react2.default.createElement(_label2.default, this.props);
 	      var saved = _react2.default.createElement(_saved2.default, { saved: this.props.saved });
 
@@ -2257,7 +2262,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: '_onBlur',
 	    value: function _onBlur() {
-	      var value = this.props.valueLink.value;
+	      var value = this.props.value;
 	      value = value.toString().replace(/,/g, '');
 	      value = this._toNumeral(value) || '';
 	      value = this._formatNumber(value);
@@ -2266,10 +2271,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, {
 	    key: '_onChange',
-	    value: function _onChange(value) {
+	    value: function _onChange(e) {
+	      var value = e.target.value;
 	      this.setState({ formattedValue: value });
 
-	      this.props.valueLink.requestChange(value.replace(/,/g, ''));
+	      this.props.onChange(value.replace(/,/g, ''));
 	    }
 	  }, {
 	    key: '_inputCx',
@@ -2282,10 +2288,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var inputProps = Object.assign({}, this.props.inputHtml, {
 	        className: this._inputCx(),
 	        onBlur: this._onBlur.bind(this),
-	        valueLink: {
-	          value: this.state.formattedValue || this._formatNumber(this._toNumeral(this.props.valueLink.value) || ''),
-	          requestChange: this._onChange.bind(this)
-	        }
+	        value: this.state.formattedValue || this._formatNumber(this._toNumeral(this.props.value) || ''),
+	        onChange: this._onChange.bind(this)
 	      });
 
 	      return _react2.default.createElement('input', inputProps);
@@ -2412,7 +2416,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return Object.assign({}, this.props.inputHtml, {
 	        key: 'input',
 	        className: 'form-control',
-	        valueLink: this.props.valueLink,
+	        value: this.props.value,
+	        onChange: this.props.onChange,
 	        options: this.props.options
 	      });
 	    }
@@ -2640,14 +2645,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(Switch, [{
 	    key: '_isChecked',
 	    value: function _isChecked() {
-	      return this.props.valueLink.value;
+	      return this.props.value;
 	    }
 	  }, {
 	    key: '_onClick',
 	    value: function _onClick() {
 	      if (this.props.disabled === true) return false;
 
-	      return this.props.valueLink.requestChange(!this.props.valueLink.value);
+	      return this.props.onChange(!this.props.value);
 	    }
 	  }, {
 	    key: '_switchCx',
@@ -2687,7 +2692,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          ref: 'switchContainer',
 	          onClick: this._onClick,
 	          style: {
-	            marginLeft: this._isChecked() ? '0' : '-' + checkedOffset + 'px',
+	            marginLeft: this._isChecked() ? '0px' : '-' + checkedOffset + 'px',
 	            width: handleWidth ? handleWidth * 3 : undefined
 	          }
 	        },
@@ -2822,10 +2827,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function _inputHtml() {
 	      return Object.assign({}, this.props.inputHtml, {
 	        className: (0, _classnames2.default)(this.props.className, 'form-control'),
-	        valueLink: {
-	          value: this.props.valueLink.value || '',
-	          requestChange: this.props.valueLink.requestChange
-	        },
+	        value: this.props.value || '',
+	        onChange: this.props.onChange,
 	        rows: this.props.rows
 	      });
 	    }
@@ -2945,11 +2948,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var _this2 = this;
 
 	      var inputProps = Object.assign({}, this.props.inputHtml, {
-	        valueLink: this.props.valueLink,
+	        value: this.props.value,
+	        onChange: this.props.onChange,
 	        className: this._inputCx(),
 	        onFocus: function onFocus() {
-	          if (_this2.props.valueLink.value == null) {
-	            _this2.props.valueLink.requestChange('12:00 AM');
+	          if (_this2.props.value == null || _this2.props.value === '') {
+	            _this2.props.onChange('12:00 AM');
 	            return true;
 	          }
 
@@ -2962,13 +2966,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: '_onTimeChange',
 	    value: function _onTimeChange(newTime) {
 	      var time = new _time_formatter2.default(newTime);
-	      this.props.valueLink.requestChange(time.toString());
+	      this.props.onChange(time.toString());
 	    }
 	  }, {
 	    key: '_timePopup',
 	    value: function _timePopup() {
 	      if (this.props.focused === false) return false;
-	      var value = this.props.valueLink.value;
+	      var value = this.props.value;
 	      var props = {};
 
 	      try {
@@ -3169,7 +3173,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  _createClass(TimePickerPopup, [{
 	    key: 'onHourChange',
-	    value: function onHourChange(newHour) {
+	    value: function onHourChange(e) {
+	      var newHour = e.target.value;
 	      var hours = newHour;
 	      var minutes = this._getMinutesFromProps();
 	      var amPm = this._getAmPmFromProps();
@@ -3177,12 +3182,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, {
 	    key: 'onMinuteChange',
-	    value: function onMinuteChange(newMinute) {
+	    value: function onMinuteChange(e) {
+	      var newMinute = e.target.value;
 	      var hours = this._getHoursFromProps();
 	      var minutes = newMinute;
 	      var amPm = this._getAmPmFromProps();
 	      this.onPopupTimeChange(hours, minutes, amPm);
 	    }
+
+	    // note: Switch does not send a SyntheticEvent, it sends the boolean value
+
 	  }, {
 	    key: 'onAmPmChange',
 	    value: function onAmPmChange(isAm) {
@@ -3242,26 +3251,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: '_getMinutesFromProps',
 	    value: function _getMinutesFromProps() {
-	      return this.refs.minutes.props.valueLink.value;
+	      return this.refs.minutes.props.value;
 	    }
 	  }, {
 	    key: '_getHoursFromProps',
 	    value: function _getHoursFromProps() {
-	      return this.refs.hours.props.valueLink.value;
+	      return this.refs.hours.props.value;
 	    }
 	  }, {
 	    key: '_getAmPmFromProps',
 	    value: function _getAmPmFromProps() {
-	      return this.refs.amPm.props.valueLink.value ? 'AM' : 'PM';
+	      return this.refs.amPm.props.value ? 'AM' : 'PM';
 	    }
 	  }, {
 	    key: '_hourProps',
 	    value: function _hourProps() {
 	      return {
-	        valueLink: {
-	          value: this.props.hours,
-	          requestChange: this.onHourChange
-	        },
+	        value: this.props.hours,
+	        onChange: this.onHourChange,
 	        name: 'hours',
 	        label: 'Hours',
 	        required: false,
@@ -3276,10 +3283,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: '_minuteProps',
 	    value: function _minuteProps() {
 	      return {
-	        valueLink: {
-	          value: this.props.minutes,
-	          requestChange: this.onMinuteChange
-	        },
+	        value: this.props.minutes,
+	        onChange: this.onMinuteChange,
 	        name: 'minutes',
 	        label: 'Minutes',
 	        required: false,
@@ -3294,10 +3299,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: '_meridiemProps',
 	    value: function _meridiemProps() {
 	      return {
-	        valueLink: {
-	          value: this.props.amPm === 'AM',
-	          requestChange: this.onAmPmChange
-	        },
+	        value: this.props.amPm === 'AM',
+	        onChange: this.onAmPmChange,
 	        label: 'AM/PM',
 	        required: false,
 	        xs: 4,
