@@ -52,6 +52,11 @@ export default class Input extends React.Component {
   }
 
   _inputGroup() {
+    const labelProps = {
+      label: this.props.label,
+      labelWidth: this.props.labelWidth,
+      layout: this.props.layout,
+    }
     let inputLabel = <Label {...this.props} />
     let saved = <Saved saved={this.props.saved} />
 
