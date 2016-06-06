@@ -35,7 +35,6 @@ export default class ColorMap extends React.Component {
       requestChange: React.PropTypes.func.isRequired,
     }).isRequired,
 
-    active: React.PropTypes.bool.isRequired,
     startDragging: React.PropTypes.func.isRequired,
     getPercentageValue: React.PropTypes.func.isRequired,
   }
@@ -50,7 +49,6 @@ export default class ColorMap extends React.Component {
       <div
         className={cx({
           'frigb-map': true,
-          'frigb-active': this.props.active,
           'frigb-dark': luminosity <= 128,
           'frigb-light': luminosity > 128,
         })}
