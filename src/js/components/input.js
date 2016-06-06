@@ -61,15 +61,17 @@ export default class Input extends React.Component {
     let saved = <Saved saved={this.props.saved} />
 
     if (this.props.prefix || this.props.suffix) {
-      return [
-        inputLabel,
-        <div className="input-group">
-          {this._inputPrefix()}
-          {this._input()}
-          {saved}
-          {this._inputSuffix()}
-        </div>,
-      ]
+      return (
+        <div>
+          {inputLabel}
+          <div className="input-group">
+            {this._inputPrefix()}
+            {this._input()}
+            {saved}
+            {this._inputSuffix()}
+          </div>
+        </div>
+      )
     }
 
     return (
