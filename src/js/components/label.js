@@ -7,7 +7,7 @@ export default class Label extends React.Component {
 
   static propTypes = {
     labelWidth: React.PropTypes.object.isRequired,
-    layout: React.PropTypes.string.isRequired,
+    layout: React.PropTypes.string,
     block: React.PropTypes.bool,
     label: React.PropTypes.oneOfType([
       React.PropTypes.string,
@@ -19,6 +19,7 @@ export default class Label extends React.Component {
   static defaultProps = {
     block: false,
     label: '',
+    layout: 'vertical',
   }
 
   isEmpty() { return !this.props.label }
