@@ -57,7 +57,7 @@ export default class Input extends React.Component {
       labelWidth: this.props.labelWidth,
       layout: this.props.layout,
     }
-    let inputLabel = <Label {...this.props} />
+    let inputLabel = <Label {...labelProps} />
     let saved = <Saved saved={this.props.saved} />
 
     if (this.props.prefix || this.props.suffix) {
