@@ -36,7 +36,7 @@ export default class ColorMap extends React.Component {
     }).isRequired,
 
     active: React.PropTypes.bool.isRequired,
-    startDragging: React.PropTypes.bool.isRequired,
+    startDragging: React.PropTypes.func.isRequired,
     getPercentageValue: React.PropTypes.func.isRequired,
   }
 

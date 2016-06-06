@@ -24,7 +24,7 @@ export default class HueSlider extends React.Component {
       h: React.PropTypes.number.isRequired,
     }).isRequired,
 
-    startDragging: React.PropTypes.bool.isRequired,
+    startDragging: React.PropTypes.func.isRequired,
     getPercentageValue: React.PropTypes.func.isRequired,
   }
 
