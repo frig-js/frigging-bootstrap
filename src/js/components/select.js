@@ -18,7 +18,12 @@ export default class Select extends React.Component {
 
   static propTypes = Object.assign({},
     defaultPropTypes, {
-      options: React.PropTypes.array,
+      options: React.PropTypes.arrayOf(
+        React.PropTypes.shape({
+          value: React.PropTypes.any.isRequired,
+          label: React.PropTypes.string.isRequired,
+        }).isRequired,
+      ),
     }
   )
 
