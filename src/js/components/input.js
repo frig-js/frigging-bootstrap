@@ -31,7 +31,8 @@ export default class Input extends React.Component {
   _inputHtml() {
     return Object.assign({}, this.props.inputHtml, {
       className: cx(this.props.className, 'form-control'),
-      valueLink: this.props.valueLink,
+      value: this.props.value,
+      onChange: this.props.onChange,
     })
   }
 
@@ -51,19 +52,26 @@ export default class Input extends React.Component {
   }
 
   _inputGroup() {
-    let inputLabel = <Label {...this.props} />
+    const labelProps = {
+      label: this.props.label,
+      labelWidth: this.props.labelWidth,
+      layout: this.props.layout,
+    }
+    let inputLabel = <Label {...labelProps} />
     let saved = <Saved saved={this.props.saved} />
 
     if (this.props.prefix || this.props.suffix) {
-      return [
-        inputLabel,
-        <div className="input-group">
-          {this._inputPrefix()}
-          {this._input()}
-          {saved}
-          {this._inputSuffix()}
-        </div>,
-      ]
+      return (
+        <div>
+          {inputLabel}
+          <div className="input-group">
+            {this._inputPrefix()}
+            {this._input()}
+            {saved}
+            {this._inputSuffix()}
+          </div>
+        </div>
+      )
     }
 
     return (

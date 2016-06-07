@@ -44,13 +44,13 @@ export default class Switch extends React.Component {
 
 
   _isChecked() {
-    return this.props.valueLink.value
+    return this.props.value
   }
 
   _onClick() {
     if (this.props.disabled === true) return false
 
-    return this.props.valueLink.requestChange(!this.props.valueLink.value)
+    return this.props.onChange(!this.props.value)
   }
 
   _switchCx() {
@@ -95,7 +95,7 @@ export default class Switch extends React.Component {
         ref="switchContainer"
         onClick={this._onClick}
         style={{
-          marginLeft: this._isChecked() ? '0' : `-${checkedOffset}px`,
+          marginLeft: this._isChecked() ? '0px' : `-${checkedOffset}px`,
           width: handleWidth ? handleWidth * 3 : undefined,
         }}
       >

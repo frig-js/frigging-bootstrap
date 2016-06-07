@@ -23,8 +23,8 @@ export default class Checkbox extends React.Component {
   _inputHtml() {
     return Object.assign({}, this.props.inputHtml, {
       type: 'checkbox',
-      value: this.props.key,
-      checkedLink: this.props.valueLink,
+      value: this.props.value,
+      onChange: this.props.onChange,
     })
   }
 

@@ -5,19 +5,29 @@ import { expect } from 'chai'
 import { mount } from 'enzyme'
 import Label from '../../src/js/components/label'
 
+const defaultProps = {
+  labelWidth: { xs: 5 },
+}
+
 describe('<Label />', () => {
   describe('when props.label is empty', () => {
     describe('and props.block is true', () => {
       // two: block is true => return empty text node
       it('returns empty text node', () => {
-        const wrapper = mount(<Label block />)
+        const wrapper = mount(<Label { ...defaultProps } block />)
         expect(wrapper.html()).to.be.null()
       })
     })
     // four: label is empty, layout is vertical => return empty text node (!)
     describe('and layout is vertical', () => {
       it('returns empty text node', () => {
-        const wrapper = mount(<Label block layout="vertical" />)
+        const wrapper = mount(
+          <Label
+            block
+            layout="vertical"
+            { ...defaultProps }
+          />
+        )
         expect(wrapper.html()).to.be.null()
       })
     })
@@ -25,7 +35,7 @@ describe('<Label />', () => {
     describe('and layout is horizontal', () => {
       // one: label is empty., layout is horizontal => return empty div WITHOUT horiz classes
       it('renders empty div', () => {
-        const wrapper = mount(<Label layout="horizontal" />)
+        const wrapper = mount(<Label layout="horizontal" { ...defaultProps } />)
         expect(wrapper.find('div')).to.have.length(1)
       })
 

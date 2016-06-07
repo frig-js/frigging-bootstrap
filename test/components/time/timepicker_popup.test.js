@@ -56,7 +56,7 @@ describe('<TimePickerPopup />', () => {
     it('renders <Switch> component with props.amPm', () => {
       const wrapper = getWrapper()
       const theSwitch = wrapper.find(Switch)
-      const isAm = theSwitch.prop('valueLink').value
+      const isAm = theSwitch.prop('value')
       expect(isAm).to.be.false()
     })
   })
@@ -114,8 +114,8 @@ describe('<TimePickerPopup />', () => {
 
       it('when minute is -15 return 45', () => {
         const props = Object.assign({}, defaultProps, {
-          hours: 7,
-          minutes: 20,
+          hours: '7',
+          minutes: '20',
           amPm: 'AM',
         })
         const wrapper = getWrapper(props)  // 7:20 AM
