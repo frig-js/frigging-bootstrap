@@ -549,8 +549,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function _inputHtml() {
 	      return Object.assign({}, this.props.inputHtml, {
 	        type: 'checkbox',
-	        value: this.props.key,
-	        checked: this.props.value,
+	        value: this.props.value,
 	        onChange: this.props.onChange
 	      });
 	    }
@@ -1331,12 +1330,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return Label;
 	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Label', _class.propTypes = {
 	  labelWidth: _react2.default.PropTypes.object.isRequired,
-	  layout: _react2.default.PropTypes.string.isRequired,
+	  layout: _react2.default.PropTypes.string,
 	  block: _react2.default.PropTypes.bool,
 	  label: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.element, _react2.default.PropTypes.bool])
 	}, _class.defaultProps = {
 	  block: false,
-	  label: ''
+	  label: '',
+	  layout: 'vertical'
 	}, _temp);
 	exports.default = Label;
 
@@ -1425,7 +1425,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        {
 	          className: (0, _classnames2.default)({
 	            'frigb-map': true,
-	            'frigb-active': this.props.active,
 	            'frigb-dark': luminosity <= 128,
 	            'frigb-light': luminosity > 128
 	          }),
@@ -1462,8 +1461,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    requestChange: _react2.default.PropTypes.func.isRequired
 	  }).isRequired,
 
-	  active: _react2.default.PropTypes.bool.isRequired,
-	  startDragging: _react2.default.PropTypes.bool.isRequired,
+	  startDragging: _react2.default.PropTypes.func.isRequired,
 	  getPercentageValue: _react2.default.PropTypes.func.isRequired
 	}, _temp)) || _class);
 	exports.default = ColorMap;
@@ -1694,7 +1692,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    h: _react2.default.PropTypes.number.isRequired
 	  }).isRequired,
 
-	  startDragging: _react2.default.PropTypes.bool.isRequired,
+	  startDragging: _react2.default.PropTypes.func.isRequired,
 	  getPercentageValue: _react2.default.PropTypes.func.isRequired
 	}, _temp)) || _class);
 	exports.default = HueSlider;
@@ -2125,18 +2123,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	        labelWidth: this.props.labelWidth,
 	        layout: this.props.layout
 	      };
-	      var inputLabel = _react2.default.createElement(_label2.default, this.props);
+	      var inputLabel = _react2.default.createElement(_label2.default, labelProps);
 	      var saved = _react2.default.createElement(_saved2.default, { saved: this.props.saved });
 
 	      if (this.props.prefix || this.props.suffix) {
-	        return [inputLabel, _react2.default.createElement(
+	        return _react2.default.createElement(
 	          'div',
-	          { className: 'input-group' },
-	          this._inputPrefix(),
-	          this._input(),
-	          saved,
-	          this._inputSuffix()
-	        )];
+	          null,
+	          inputLabel,
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'input-group' },
+	            this._inputPrefix(),
+	            this._input(),
+	            saved,
+	            this._inputSuffix()
+	          )
+	        );
 	      }
 
 	      return _react2.default.createElement(
@@ -2365,11 +2368,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactDom = __webpack_require__(18);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	var _classnames = __webpack_require__(7);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _frig = __webpack_require__(8);
 
 	var _input_error_list = __webpack_require__(9);
 
@@ -2411,15 +2416,108 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  _createClass(Select, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      var hasOptions = this.props.options.length !== 0;
+	      if (hasOptions && this.props.value === '') {
+	        this._setInitialValue(this.props);
+	      }
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      var hasOptions = nextProps.options.length !== 0;
+	      // Setting the intial value of the select when the options load
+	      if (hasOptions && nextProps.value === '') {
+	        this._setInitialValue(nextProps);
+	      }
+	      // Blanking the select's value when the options are removed
+	      if (!hasOptions && nextProps.value !== '') {
+	        nextProps.onChange(undefined, { setModified: false });
+	      }
+	    }
+
+	    // Default a blank value to the first option (if there are no blank options)
+
+	  }, {
+	    key: '_setInitialValue',
+	    value: function _setInitialValue(nextProps) {
+	      if (nextProps.options.filter(function (_ref) {
+	        var value = _ref.value;
+	        return value === '';
+	      }).length > 0) {
+	        return;
+	      }
+	      var value = nextProps.value || nextProps.options[0].value;
+	      nextProps.onChange(value, { setModified: false });
+	    }
+
+	    // Reads the value from the DOM for the select input fields
+
+	  }, {
+	    key: '_getValue',
+	    value: function _getValue() {
+	      var el = _reactDom2.default.findDOMNode(this.refs.input);
+	      // The value is cast to a string when we get it from DOM.value. This is a
+	      // mapping of those strings to their original values in the options list.
+	      var originalValues = {};
+	      var _iteratorNormalCompletion = true;
+	      var _didIteratorError = false;
+	      var _iteratorError = undefined;
+
+	      try {
+	        for (var _iterator = this.props.options[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	          var option = _step.value;
+
+	          var valueHash = option.value.toString();
+	          originalValues[valueHash] = option.value;
+	        }
+	      } catch (err) {
+	        _didIteratorError = true;
+	        _iteratorError = err;
+	      } finally {
+	        try {
+	          if (!_iteratorNormalCompletion && _iterator.return) {
+	            _iterator.return();
+	          }
+	        } finally {
+	          if (_didIteratorError) {
+	            throw _iteratorError;
+	          }
+	        }
+	      }
+
+	      return originalValues[el.value] || el.value;
+	    }
+	  }, {
+	    key: '_onChange',
+	    value: function _onChange() {
+	      this.props.onChange(this._getValue());
+	    }
+	  }, {
 	    key: '_inputHtml',
 	    value: function _inputHtml() {
 	      return Object.assign({}, this.props.inputHtml, {
 	        key: 'input',
+	        ref: 'input',
 	        className: 'form-control',
 	        value: this.props.value,
 	        onChange: this.props.onChange,
 	        options: this.props.options
 	      });
+	    }
+	  }, {
+	    key: '_selectOption',
+	    value: function _selectOption(o) {
+	      var attrs = {
+	        key: 'option-' + o.label,
+	        value: o.value || ''
+	      };
+	      return _react2.default.createElement(
+	        'option',
+	        attrs,
+	        o.label
+	      );
 	    }
 	  }, {
 	    key: 'render',
@@ -2435,7 +2533,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'controls' },
-	            _react2.default.createElement(_frig.ValueLinkedSelect, this._inputHtml()),
+	            _react2.default.createElement(
+	              'select',
+	              this._inputHtml(),
+	              this.props.options.map(this._selectOption)
+	            ),
 	            _react2.default.createElement(_input_error_list2.default, { errors: this.props.errors })
 	          ),
 	          _react2.default.createElement(_saved2.default, { saved: this.props.saved })
@@ -2446,9 +2548,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  return Select;
 	}(_react2.default.Component), _class.displayName = 'FriggingBootstrap.Select', _class.defaultProps = Object.assign({}, _default_props2.default, {
-	  options: {}
+	  options: []
 	}), _class.propTypes = Object.assign({}, _default_prop_types2.default, {
-	  options: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.array, _react2.default.PropTypes.object, _react2.default.PropTypes.string])
+	  options: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.shape({
+	    value: _react2.default.PropTypes.any.isRequired,
+	    label: _react2.default.PropTypes.string.isRequired
+	  }).isRequired)
 	}), _temp);
 	exports.default = Select;
 
