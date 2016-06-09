@@ -56,7 +56,7 @@
     "file-loader": "0.8.5",
     "font-awesome": "4.6.3",
     "frig": "0.13.0",
-    "ignore-styles": "^2.0.0",
+    "ignore-styles": "^3.0.0",
     "istanbul": "1.0.0-alpha.2",
     "mocha": "2.5.3",
     "mocha-lcov-reporter": "1.2.0",
