@@ -68,7 +68,7 @@ describe('<Select />', () => {
     describe('_getValue', () => {
       const testGetValue = (options, value, onChange, expected) => {
         const props = { options, value, onChange }
-        const wrapper = mount(<Select { ...props } />)
+        const wrapper = mount(<Select {...props} />)
         const instance = wrapper.instance()
         expect(instance._getValue()).to.equal(expected)
       }
@@ -161,7 +161,7 @@ describe('<Select />', () => {
           }
 
           // requestChange should be called on component mount
-          const wrapper = mount(<Select { ...props } />)
+          const wrapper = mount(<Select {...props} />)
           td.verify(onChange('CA', { setModified: false }), { times: 1 })
 
           // simulate a re-render of the component with the same props
@@ -181,7 +181,7 @@ describe('<Select />', () => {
             onChange,
           }
 
-          mount(<Select { ...props } />)
+          mount(<Select {...props} />)
 
           td.verify(onChange(), { times: 0, ignoreExtraArgs: true })
         })
@@ -198,7 +198,7 @@ describe('<Select />', () => {
             onChange,
           }
 
-          const wrapper = mount(<Select { ...props } />)
+          const wrapper = mount(<Select {...props} />)
 
           props.options = []
           wrapper.setProps(props)
