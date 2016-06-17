@@ -14,7 +14,7 @@ describe('<Label />', () => {
     describe('and props.block is true', () => {
       // two: block is true => return empty text node
       it('returns empty text node', () => {
-        const wrapper = mount(<Label { ...defaultProps } block />)
+        const wrapper = mount(<Label {...defaultProps} block />)
         expect(wrapper.html()).to.be.null()
       })
     })
@@ -25,7 +25,7 @@ describe('<Label />', () => {
           <Label
             block
             layout="vertical"
-            { ...defaultProps }
+            {...defaultProps}
           />
         )
         expect(wrapper.html()).to.be.null()
@@ -35,7 +35,7 @@ describe('<Label />', () => {
     describe('and layout is horizontal', () => {
       // one: label is empty., layout is horizontal => return empty div WITHOUT horiz classes
       it('renders empty div', () => {
-        const wrapper = mount(<Label layout="horizontal" { ...defaultProps } />)
+        const wrapper = mount(<Label layout="horizontal" {...defaultProps} />)
         expect(wrapper.find('div')).to.have.length(1)
       })
 
