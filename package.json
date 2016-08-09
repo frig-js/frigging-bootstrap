@@ -59,7 +59,7 @@
     "ignore-styles": "^4.0.0",
     "istanbul": "1.0.0-alpha.2",
     "jsdom": "9.4.1",
-    "mocha": "3.0.1",
+    "mocha": "3.0.2",
     "mocha-lcov-reporter": "1.2.0",
     "numeral": "1.5.3",
     "react": "15.3.0",
