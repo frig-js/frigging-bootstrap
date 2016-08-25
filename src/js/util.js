@@ -11,8 +11,7 @@ const sizeClassNames = (props = {}, opts = { offsets: true }) => {
   if (opts.offsets) {
     for (const size of sizes) {
       const k = `${size}Offset`
-      if (props[k] == null) continue
-      classes[`col-${size}-offset-${props[k]}`] = true
+      if (props[k] != null) classes[`col-${size}-offset-${props[k]}`] = true
     }
   }
   return cx(classes)

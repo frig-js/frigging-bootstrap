@@ -1,5 +1,6 @@
+/* global FileReader */
+
 import React from 'react'
-import ReactDOM from 'react-dom'
 import cx from 'classnames'
 
 import InputErrorList from './input_error_list'
@@ -26,7 +27,7 @@ export default class FileInput extends React.Component {
       className: cx(this.props.className, 'form-control'),
       type: 'file',
       accept: 'image/png,image/gif,image/jpeg',
-      ref: 'frigFile',
+      ref: node => { this.frigFile = node },
       onChange: this._loadFile.bind(this),
     })
     return <input {...inputProps} />
@@ -35,7 +36,7 @@ export default class FileInput extends React.Component {
   _loadFile() {
     this.fReader = new FileReader()
     this.fReader.onloadend = this._onFileLoad.bind(this)
-    const file = ReactDOM.findDOMNode(this.refs.frigFile).files[0]
+    const file = this.frigFile.files[0]
     this.fReader.readAsDataURL(file)
   }
 

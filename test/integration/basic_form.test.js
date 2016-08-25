@@ -1,7 +1,7 @@
 /* global describe, it, beforeEach */
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+
 import { mount } from 'enzyme'
 import { expect } from 'chai'
 import td from 'testdouble'
@@ -49,7 +49,7 @@ describe('Basic form', () => {
   const getInput = (frigInput) => frigInput.find('input')
   const getInputByName = (name) => getInput(getFrigInput(name))
   const getValue = (input) => input.prop('value')
-  const getDOMNode = (c) => ReactDOM.findDOMNode(c.get(0))
+  const getDOMNode = (c) => c.get(0)
 
   it('should set the inputs values from data', () => {
     const name = getInputByName('name')

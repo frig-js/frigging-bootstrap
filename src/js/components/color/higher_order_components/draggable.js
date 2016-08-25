@@ -1,3 +1,5 @@
+/* global document */
+
 import React from 'react'
 
 export default function({ updateClientCoords }) {

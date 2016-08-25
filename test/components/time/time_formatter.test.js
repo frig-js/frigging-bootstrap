@@ -120,7 +120,9 @@ describe('TimeFormatter', () => {
       }
 
       throw new Error(
-        `expected to throw ${errorType.name}(${regex && regex.toString() || ''}), nothing caught`
+        `expected to throw
+        ${errorType.name}(${(regex && regex.toString()) || ''}),
+        nothing caught`
       )
     }
 

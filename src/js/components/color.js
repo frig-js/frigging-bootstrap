@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import cx from 'classnames'
 
 import Colr from 'colr'
@@ -80,7 +79,7 @@ export default class Color extends React.Component {
   }
 
   _onColorBlockClick() {
-    ReactDOM.findDOMNode(this.refs.frigColorInput).select()
+    this.frigColorInput.select()
   }
 
   _colorPopup() {
@@ -107,7 +106,7 @@ export default class Color extends React.Component {
     const inputProps = Object.assign({}, this.props.inputHtml, {
       value: this.props.value,
       onChange: this.props.onChange,
-      ref: 'frigColorInput',
+      ref: node => { this.frigColorInput = node },
       className: cx(
         this.props.inputHtml.className,
         'frigb-color-input',

@@ -1,11 +1,13 @@
 /* global describe, it, beforeEach, afterEach */
 
 import React from 'react'
+import td from 'testdouble'
+
 import { expect } from 'chai'
 import { mount } from 'enzyme'
+
 import TimePickerPopup from '../../../src/js/components/time/timepicker_popup'
 import Switch from '../../../src/js/components/switch'
-import td from 'testdouble'
 
 describe('<TimePickerPopup />', () => {
   const defaultProps = {
@@ -17,10 +19,11 @@ describe('<TimePickerPopup />', () => {
 
   afterEach(() => { td.reset() })
 
-  const getWrapper = (props = defaultProps) => mount(<TimePickerPopup {...props} />)
+  const getWrapper = (props = defaultProps) =>
+    mount(<TimePickerPopup {...props} />)
 
   const simulateChangeHours = (wrapper, newHours) => {
-    const input = wrapper.ref('hours')
+    const input = wrapper.find('Input').at(0)
     const realInput = input.find('input')
     const node = realInput.get(0)
     node.value = newHours
@@ -28,7 +31,7 @@ describe('<TimePickerPopup />', () => {
   }
 
   const simulateChangeMinutes = (wrapper, newMinutes) => {
-    const input = wrapper.ref('minutes')
+    const input = wrapper.find('Input').at(1)
     const realInput = input.find('input')
     const node = realInput.get(0)
     node.value = newMinutes
@@ -36,7 +39,7 @@ describe('<TimePickerPopup />', () => {
   }
 
   const simulateToggleAmPm = (wrapper) => {
-    const theSwitch = wrapper.ref('amPm')
+    const theSwitch = wrapper.find('Switch').at(0)
     const magicDiv = theSwitch.find('.bootstrap-switch-container')
     magicDiv.simulate('click')
   }
@@ -44,11 +47,11 @@ describe('<TimePickerPopup />', () => {
   describe('render', () => {
     it('renders <Input> components with props.hours, minutes', () => {
       const wrapper = getWrapper()
-      const hoursInput = wrapper.ref('hours')
+      const hoursInput = wrapper.find('Input').at(0)
       const realHoursInput = hoursInput.find('input').get(0)
       expect(realHoursInput.value).to.equal('3')
 
-      const minutesInput = wrapper.ref('minutes')
+      const minutesInput = wrapper.find('Input').at(1)
       const realMinutesInput = minutesInput.find('input').get(0)
       expect(realMinutesInput.value).to.equal('45')
     })

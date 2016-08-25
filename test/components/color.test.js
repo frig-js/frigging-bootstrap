@@ -1,13 +1,15 @@
 /* global describe, it, beforeEach */
 
 import React from 'react'
+import td from 'testdouble'
+import Colr from 'colr'
+
 import { expect } from 'chai'
 import { mount, shallow } from 'enzyme'
+
 import Color from '../../src/js/components/color'
 import HueSlider from '../../src/js/components/color/hue_slider'
 import ColorMap from '../../src/js/components/color/map'
-import td from 'testdouble'
-import Colr from 'colr'
 
 import * as common from './_common.test'
 

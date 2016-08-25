@@ -25,7 +25,7 @@ describe('<Checkbox />', () => {
   })
 
   it('renders HTML <label> tag with attrs from props.labelHtml', () => {
-    const labelHtml = { foo: 'bar' }
+    const labelHtml = { foo: 'bar', htmlFor: 'checkboxName' }
     const wrapper = mount(<Checkbox {...props} labelHtml={labelHtml} />)
     const label = wrapper.find('label')
     expect(label.prop('foo')).to.equal('bar')

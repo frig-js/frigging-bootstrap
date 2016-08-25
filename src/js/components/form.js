@@ -19,7 +19,7 @@ export default class Form extends React.Component {
     const layoutClassName = `form-${this.props.layout}`
     const className = this.props.formHtml ? this.props.formHtml.className : ''
     return Object.assign({}, this.props.formHtml, {
-      ref: 'form',
+      ref: node => { this.form = node },
       className: `${className} ${layoutClassName}`.trim(),
     })
   }

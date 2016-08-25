@@ -1,10 +1,12 @@
 /* global describe, it, beforeEach */
 
 import React from 'react'
+import td from 'testdouble'
+
 import { expect } from 'chai'
 import { mount } from 'enzyme'
+
 import draggable from '../../../../src/js/components/color/higher_order_components/draggable'
-import td from 'testdouble'
 
 // the component we are wrapping in a @draggable
 const Stub = () => <div />
