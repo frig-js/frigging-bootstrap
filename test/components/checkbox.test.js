@@ -9,31 +9,26 @@ import Checkbox from '../../src/js/components/checkbox'
 
 import * as common from './_common.test'
 
-const props = {
+const defaultProps = {
   value: true,
   onChange: () => {},
   inputHtml: { type: 'checkbox' },
 }
 
-common.runInputErrorListTest(Checkbox, props)
-common.runSavedTest(Checkbox, props)
-// n.b. <Checkbox> doesn't use the bootstrap <Label/>, rather an HTML <label>
-
 describe('<Checkbox />', () => {
   it('renders', () => {
-    mount(<Checkbox {...props} />)
+    mount(<Checkbox {...defaultProps} />)
   })
 
-  it('renders HTML <label> tag with attrs from props.labelHtml', () => {
-    const labelHtml = { foo: 'bar' }
-    const wrapper = mount(<Checkbox {...props} labelHtml={labelHtml} />)
-    const label = wrapper.find('label')
-    expect(label.prop('foo')).to.equal('bar')
+  describe('common Bootstrap tests', () => {
+    common.runInputErrorListTest(Checkbox, defaultProps)
+    common.runSavedTest(Checkbox, defaultProps)
+    common.runLabelTest(Checkbox, defaultProps)
   })
 
   it('renders input tag with attrs from props.inputHtml', () => {
     const inputHtml = { autocomplete: 'off' }
-    const wrapper = mount(<Checkbox {...props} inputHtml={inputHtml} />)
+    const wrapper = mount(<Checkbox {...defaultProps} inputHtml={inputHtml} />)
     const label = wrapper.find('input')
     expect(label.prop('autocomplete')).to.equal('off')
   })

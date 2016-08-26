@@ -5,6 +5,7 @@ import { HigherOrderComponents } from 'frig'
 
 import InputErrorList from './input_error_list'
 import Saved from './saved'
+import Label from './label'
 import {
   sizeClassNames,
   formGroupCx,
@@ -33,10 +34,8 @@ export default class Checkbox extends React.Component {
       <div className="form-group">
         <div className={cx(sizeClassNames(this.props))}>
           <div className={formGroupCx(this.props)}>
-            <label {...this.props.labelHtml}>
-              <input {...this._inputHtml()} />
-              {this.props.label ? ` ${this.props.label}` : ''}
-            </label>
+            <input {...this._inputHtml()} />
+            <Label {...this.props} />
             <Saved saved={this.props.saved} />
             <InputErrorList errors={this.props.errors} />
           </div>
