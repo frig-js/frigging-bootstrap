@@ -2,23 +2,22 @@ import React from 'react'
 import { sizeClassNames } from '../util.js'
 import cx from 'classnames'
 
+import defaultProps from '../default_props.js'
+import defaultPropTypes from '../default_prop_types.js'
+
 export default class Label extends React.Component {
   static displayName = 'FriggingBootstrap.Label'
 
   static propTypes = {
-    labelWidth: React.PropTypes.object.isRequired,
+    labelWidth: defaultPropTypes.labelWidth,
+    block: defaultPropTypes.block,
+    label: defaultPropTypes.label,
     layout: React.PropTypes.string,
-    block: React.PropTypes.bool,
-    label: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.element,
-      React.PropTypes.bool,    // can set label={false} to not show a label
-    ]),
   }
 
   static defaultProps = {
-    block: false,
-    label: '',
+    block: defaultProps.block,
+    label: defaultProps.label,
     layout: 'vertical',
   }
 
