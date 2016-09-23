@@ -25,17 +25,17 @@ describe('<Checkbox />', () => {
   })
 
   it('renders HTML <label> tag with attrs from props.labelHtml', () => {
-    const labelHtml = { foo: 'bar' }
+    const labelHtml = { foo: 'bar', htmlFor: 'checkboxName' }
     const wrapper = mount(<Checkbox {...props} labelHtml={labelHtml} />)
     const label = wrapper.find('label')
     expect(label.prop('foo')).to.equal('bar')
   })
 
   it('renders input tag with attrs from props.inputHtml', () => {
-    const inputHtml = { autocomplete: 'off' }
+    const inputHtml = { autoComplete: 'off' }
     const wrapper = mount(<Checkbox {...props} inputHtml={inputHtml} />)
     const label = wrapper.find('input')
-    expect(label.prop('autocomplete')).to.equal('off')
+    expect(label.prop('autoComplete')).to.equal('off')
   })
 
   // it('renders InputErrorList with props.errors', () => {

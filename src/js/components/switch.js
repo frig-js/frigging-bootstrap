@@ -70,7 +70,7 @@ export default class Switch extends React.Component {
 
   _switchStyle() {
     const { handleWidth } = this.props
-    return { width: handleWidth ? `${handleWidth * 2 + 2}px` : undefined }
+    return { width: handleWidth ? `${(handleWidth * 2) + 2}px` : undefined }
   }
 
   _onSpanCx() {
@@ -92,7 +92,7 @@ export default class Switch extends React.Component {
     return (
       <div
         className="bootstrap-switch-container"
-        ref="switchContainer"
+        ref={node => { this.switchContainer = node }}
         onClick={this._onClick}
         style={{
           marginLeft: this._isChecked() ? '0px' : `-${checkedOffset}px`,

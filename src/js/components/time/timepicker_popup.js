@@ -73,7 +73,7 @@ export default class TimePickerPopup extends React.Component {
 
     // if minutes=75 (e.g. <input type="number" step="15">),
     // "roll over" to 15
-    minutes = minutes % 60
+    minutes %= 60
 
     // if minutes=-15 (e.g. <input type="number" step="15">),
     // "roll over" to 45
@@ -90,15 +90,15 @@ export default class TimePickerPopup extends React.Component {
   }
 
   _getMinutesFromProps() {
-    return this.refs.minutes.props.value
+    return this.minutes.props.value
   }
 
   _getHoursFromProps() {
-    return this.refs.hours.props.value
+    return this.hours.props.value
   }
 
   _getAmPmFromProps() {
-    return this.refs.amPm.props.value ? 'AM' : 'PM'
+    return this.amPm.props.value ? 'AM' : 'PM'
   }
 
   _hourProps() {
@@ -106,6 +106,7 @@ export default class TimePickerPopup extends React.Component {
       value: this.props.hours,
       onChange: this.onHourChange,
       name: 'hours',
+      ref: node => { this.hours = node },
       label: 'Hours',
       required: false,
       xs: 4,
@@ -121,6 +122,7 @@ export default class TimePickerPopup extends React.Component {
       value: this.props.minutes,
       onChange: this.onMinuteChange,
       name: 'minutes',
+      ref: node => { this.minutes = node },
       label: 'Minutes',
       required: false,
       xs: 4,
@@ -139,6 +141,7 @@ export default class TimePickerPopup extends React.Component {
       required: false,
       xs: 4,
       name: 'meridiem',
+      ref: node => { this.amPm = node },
       onText: 'AM',
       onColor: 'warning',
       offText: 'PM',
@@ -151,9 +154,9 @@ export default class TimePickerPopup extends React.Component {
       <div className="frigb-popup-container popover bottom">
         <div className="arrow" />
         <div className="row">
-          <Input ref="hours" {...this._hourProps()} />
-          <Input ref="minutes" {...this._minuteProps()} />
-          <Switch ref="amPm" {...this._meridiemProps()} />
+          <Input {...this._hourProps()} />
+          <Input {...this._minuteProps()} />
+          <Switch {...this._meridiemProps()} />
         </div>
       </div>
     )

@@ -1,12 +1,14 @@
 /* global describe, it, beforeEach, afterEach */
 
 import React from 'react'
-import { expect } from 'chai'
-import { mount, shallow } from 'enzyme'
-import TimePicker from '../../src/js/components/timepicker'
-import TimePickerPopup from '../../src/js/components/time/timepicker_popup'
 import td from 'testdouble'
 import cloner from 'cloner'
+
+import { expect } from 'chai'
+import { mount, shallow } from 'enzyme'
+
+import TimePicker from '../../src/js/components/timepicker'
+import TimePickerPopup from '../../src/js/components/time/timepicker_popup'
 
 const defaultProps = {
   value: '5:30 PM',

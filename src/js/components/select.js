@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import cx from 'classnames'
 
 import InputErrorList from './input_error_list'
@@ -57,7 +56,7 @@ export default class Select extends React.Component {
 
   // Reads the value from the DOM for the select input fields
   _getValue() {
-    const el = ReactDOM.findDOMNode(this.refs.input)
+    const el = this.input
     // The value is cast to a string when we get it from DOM.value. This is a
     // mapping of those strings to their original values in the options list.
     const originalValues = {}
@@ -76,7 +75,7 @@ export default class Select extends React.Component {
   _inputHtml() {
     return Object.assign({}, this.props.inputHtml, {
       key: 'input',
-      ref: 'input',
+      ref: node => { this.input = node },
       className: 'form-control',
       value: this.props.value,
       onChange: this.props.onChange,

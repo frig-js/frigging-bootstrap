@@ -1,12 +1,13 @@
 /* global describe, it, beforeEach */
 
+import cloner from 'cloner'
+
 import { expect } from 'chai'
 import {
   sizeClassNames,
   formGroupCx,
   inputContainerCx,
 } from '../src/js/util'
-import cloner from 'cloner'
 
 describe('Util', () => {
   describe('sizeClassNames', () => {

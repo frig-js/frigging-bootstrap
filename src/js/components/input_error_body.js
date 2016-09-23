@@ -16,7 +16,7 @@ export default class InputErrorBody extends React.Component {
         <i
           className="fa fa-exclamation-circle"
           key={`error-label-${this.props.i}`}
-        ></i>
+        />
         {' '}
         {this.props.msg}
       </span>

@@ -1,11 +1,13 @@
 /* global describe, it, beforeEach */
 
 import React from 'react'
-import { expect } from 'chai'
-import { mount } from 'enzyme'
-import Switch from '../../src/js/components/switch'
 import td from 'testdouble'
 import cloner from 'cloner'
+
+import { expect } from 'chai'
+import { mount } from 'enzyme'
+
+import Switch from '../../src/js/components/switch'
 
 import * as common from './_common.test'
 

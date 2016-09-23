@@ -1,3 +1,5 @@
+/* global window */
+
 import 'ignore-styles'
 
 import { jsdom } from 'jsdom'

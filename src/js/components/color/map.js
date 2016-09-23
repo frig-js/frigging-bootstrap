@@ -1,14 +1,14 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Colr from 'colr'
 import cx from 'classnames'
+
 import draggable from './higher_order_components/draggable.js'
 import defaultProps from '../../default_props.js'
 
 @draggable({
   // See this for the below issue with eslint and higher order components - https://github.com/yannickcr/eslint-plugin-react/issues/322
   updateClientCoords({ clientX, clientY }) { // eslint-disable-line react/prop-types
-    const rect = ReactDOM.findDOMNode(this).getBoundingClientRect()
+    const rect = this.getBoundingClientRect()
     const x = (clientX - rect.left) / rect.width
     const y = (rect.bottom - clientY) / rect.height
     const saturation = this.getScaledValue(x)

@@ -1,14 +1,15 @@
 /* global describe, it, beforeEach */
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+import td from 'testdouble'
+
 import { expect } from 'chai'
 import { mount } from 'enzyme'
+
 import Select from '../../src/js/components/select'
 import InputErrorList from '../../src/js/components/input_error_list'
 import Saved from '../../src/js/components/saved'
 import Label from '../../src/js/components/label'
-import td from 'testdouble'
 
 const defaultProps = {
   value: 'red',
@@ -36,9 +37,8 @@ describe('<Select />', () => {
 
     it('renders select tag with props.value as selected value', () => {
       const wrapper = mount(<Select {...defaultProps} />)
-      const select = wrapper.find('select')
-      const node = ReactDOM.findDOMNode(select.get(0))
-      expect(node.value).to.equal('red')
+      const select = wrapper.find('select').get(0)
+      expect(select.value).to.equal('red')
     })
 
     it('renders InputErrorList with props.errors', () => {

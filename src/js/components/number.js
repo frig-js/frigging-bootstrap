@@ -75,7 +75,7 @@ export default class Number extends React.Component {
     // or
     // numeral.js can sometimes convert values (like '4.5.2') into NaN
     // and we would rather null than NaN.
-    if (n.value() === 0 && (value !== 0 && value !== '0') || isNaN(n.value())) {
+    if ((n.value() === 0 && (value !== 0 && value !== '0')) || isNaN(n.value())) {
       return null
     }
 

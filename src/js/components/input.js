@@ -55,10 +55,11 @@ export default class Input extends React.Component {
     const labelProps = {
       label: this.props.label,
       labelWidth: this.props.labelWidth,
+      htmlFor: this.props.name,
       layout: this.props.layout,
     }
-    let inputLabel = <Label {...labelProps} />
-    let saved = <Saved saved={this.props.saved} />
+    const inputLabel = <Label {...labelProps} />
+    const saved = <Saved saved={this.props.saved} />
 
     if (this.props.prefix || this.props.suffix) {
       return (

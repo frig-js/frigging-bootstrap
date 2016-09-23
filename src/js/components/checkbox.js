@@ -29,11 +29,13 @@ export default class Checkbox extends React.Component {
   }
 
   render() {
+    const { htmlFor, ...otherProps } = this.props.labelHtml || {}
+
     return (
       <div className="form-group">
         <div className={cx(sizeClassNames(this.props))}>
           <div className={formGroupCx(this.props)}>
-            <label {...this.props.labelHtml}>
+            <label htmlFor={htmlFor} {...otherProps}>
               <input {...this._inputHtml()} />
               {this.props.label ? ` ${this.props.label}` : ''}
             </label>
