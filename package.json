@@ -43,7 +43,7 @@
     "classnames": "2.2.5",
     "cloner": "^0.4.0",
     "colr": "1.2.2",
-    "coveralls": "2.11.14",
+    "coveralls": "2.11.16",
     "css-loader": "0.25.0",
     "dirty-chai": "1.2.2",
     "enzyme": "2.4.1",
