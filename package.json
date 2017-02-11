@@ -58,7 +58,7 @@
     "frig": "0.13.0",
     "ignore-styles": "^5.0.1",
     "istanbul": "1.0.0-alpha.2",
-    "jsdom": "9.5.0",
+    "jsdom": "9.11.0",
     "mocha": "3.0.2",
     "mocha-lcov-reporter": "1.2.0",
     "numeral": "1.5.3",
