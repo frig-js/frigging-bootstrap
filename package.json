@@ -39,7 +39,7 @@
     "babel-preset-stage-1": "6.13.0",
     "babel-register": "6.14.0",
     "bootstrap": "3.3.7",
-    "chai": "3.5.0",
+    "chai": "4.0.0",
     "classnames": "2.2.5",
     "cloner": "^0.4.0",
     "colr": "1.2.2",
